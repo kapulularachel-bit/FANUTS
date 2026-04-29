@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical|space_between"
+            android:gravity="center_vertical"
             android:padding="20dp"
             android:background="@color/white"
             app:elevation="2dp">
@@ -314,7 +314,7 @@
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-                            android:src="@android:drawable/ic_menu_forward"
+                            android:src="@drawable/ic_arrow_forward"
                             android:tint="@color/white"
                             android:contentDescription="@null" />
                     </LinearLayout>
@@ -374,7 +374,7 @@
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
-                            android:src="@android:drawable/ic_menu_forward"
+                            android:src="@drawable/ic_arrow_forward"
                             android:tint="@color/white"
                             android:contentDescription="@null" />
                     </LinearLayout>
