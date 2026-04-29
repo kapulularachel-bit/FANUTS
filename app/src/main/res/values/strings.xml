@@ -1,0 +1,183 @@
+<resources>
+    <string name="app_name">ANA ATHU</string>
+    <string name="subtitle">Comprehensive Child &amp; Maternal Health Tracking</string>
+    <string name="btn_child_module">Child Tracking</string>
+    <string name="desc_app_logo">App Logo</string>
+    <string name="desc_growth_icon">Growth Icon</string>
+
+    <!-- Medical Disclaimer -->
+    <string name="medical_disclaimer">⚠️ DISCLAIMER: This app does not replace professional medical care. Always consult a health worker for diagnosis and treatment.</string>
+
+    <!-- Main Page Strings -->
+    <string name="header_select_module">Services</string>
+    <string name="child_module_desc">Nutritional Growth &amp; Health Monitoring</string>
+    <string name="desc_forward_icon">Open Module</string>
+
+    <!-- Authentic Medical Content -->
+    <string name="medical_tip_title">WHO Health Guidance</string>
+    <string name="medical_tip_content">Malnutrition remains a leading cause of child mortality worldwide. ANA ATHU utilizes WHO Growth Standards to provide accurate and early assessment of Severe Acute Malnutrition (SAM) and Moderate Acute Malnutrition (MAM) conditions with real-time alerts.</string>
+    <string name="maternal_tip_title">Maternal Wellness</string>
+    <string name="maternal_tip_content">Optimal maternal nutrition during pregnancy and lactation is essential for the healthy development and survival of children. Our comprehensive tracking helps monitor maternal health indicators.</string>
+
+    <string name="verified_label">VERIFIED</string>
+    <string name="pillar_growth">Growth</string>
+    <string name="pillar_safety">Safety</string>
+    <string name="pillar_epi">EPI</string>
+    <string name="desc_check_icon">Verified Checkmark</string>
+    <string name="desc_pillar_growth">Growth Tracking Icon</string>
+    <string name="desc_pillar_safety">Safety Info Icon</string>
+    <string name="desc_pillar_epi">Vaccination Icon</string>
+
+    <!-- UI Strings -->
+    <string name="welcome_back">Welcome back,</string>
+    <string name="app_subtitle">Integrated Health Tracking</string>
+    <string name="children_label">Children</string>
+    <string name="alerts_label">Alerts</string>
+    <string name="healthy_label">Healthy</string>
+    <string name="services">Services</string>
+    <string name="register_child">Register Child</string>
+    <string name="view_child">View Records</string>
+    <string name="vaccination_reminders">Vaccinations</string>
+    <string name="imci_danger_signs">Danger Signs</string>
+    <string name="maternal_health">Maternal Health</string>
+    <string name="muac_assessment">MUAC Check</string>
+
+    <!-- MUAC Page Strings -->
+    <string name="muac_title">MUAC Assessment</string>
+    <string name="muac_subtitle">Mid-Upper Arm Circumference Analysis</string>
+    <string name="muac_hint">Enter MUAC value in cm</string>
+    <string name="muac_check_btn">Analyze Status</string>
+    <string name="muac_medical_info_title">Medical Guidelines (WHO)</string>
+    <string name="muac_medical_info_content">MUAC is used to assess nutritional status in children (6–59 months). \n\n• GREEN: Healthy nutrition.\n• YELLOW: Moderate Malnutrition (MAM).\n• RED: Severe Malnutrition (SAM) - Emergency.</string>
+    <string name="muac_animation_desc">Status Animation</string>
+
+    <!-- Dashboard Strings -->
+    <string name="dashboard_title">Registered Children</string>
+    <string name="child_avatar_desc">Child Avatar</string>
+    <string name="default_child_name">Child Name</string>
+    <string name="default_child_details">Gender | DOB</string>
+    <string name="muac_label">MUAC: %s cm</string>
+    <string name="add_child_desc">Add Child</string>
+    <string name="empty_records_message">No children registered yet.</string>
+
+    <!-- Detail Strings -->
+    <string name="detail_title">Child Details</string>
+    <string name="personal_info_header">Personal Information</string>
+    <string name="health_metrics_header">Health Metrics</string>
+    <string name="label_detail_gender">Gender: %s</string>
+    <string name="label_detail_dob">DOB: %s</string>
+    <string name="label_detail_weight">Weight: %s kg</string>
+    <string name="label_detail_height">Height: %s cm</string>
+    <string name="label_detail_muac">MUAC: %s cm</string>
+
+    <!-- IMCI Strings -->
+    <string name="imci_title">IMCI Danger Signs</string>
+    <string name="imci_subtitle">Select any signs observed in the child</string>
+    <string name="imci_check_button">Check for Referral</string>
+    <string name="referral_urgent">⚠️ URGENT REFERRAL REQUIRED</string>
+    <string name="referral_message">The child has one or more danger signs. Please take the child to the nearest health facility IMMEDIATELY.</string>
+    <string name="no_danger_signs">No immediate danger signs selected. Continue routine monitoring.</string>
+    <string name="result_placeholder">Result will appear here</string>
+
+    <!-- Danger Signs List -->
+    <string name="ds_unable_to_drink">Unable to drink or breastfeed</string>
+    <string name="ds_vomits_everything">Vomits everything</string>
+    <string name="ds_convulsions">Convulsions (Fits)</string>
+    <string name="ds_lethargic">Lethargic or unconscious</string>
+    <string name="ds_stridor">Stridor (Noise when breathing in)</string>
+    <string name="ds_chest_indrawing">Severe chest indrawing</string>
+    <string name="ds_edema">Edema (Swelling) of both feet</string>
+    <string name="ds_high_fever">Very high fever</string>
+    <string name="ds_pale_palms">Very pale palms (Severe anemia)</string>
+    <string name="ds_cloudy_cornea">Clouding of the cornea</string>
+    <string name="ds_mouth_ulcers">Deep or extensive mouth ulcers</string>
+    <string name="ds_stiff_neck">Stiff neck</string>
+    <string name="ds_fontanelle">Bulging fontanelle (in infants)</string>
+
+    <!-- Vaccination Strings -->
+    <string name="vaccination_title">Malawi EPI Schedule</string>
+    <string name="vaccination_subtitle">Reminders for essential immunizations</string>
+    <string name="vaccine_name">Vaccine</string>
+    <string name="vaccine_due_date">Due Date</string>
+    <string name="vaccine_status">Status</string>
+    <string name="immunization_progress">Immunization Progress</string>
+    <string name="vaccine_count_format">%1$d/%2$d</string>
+    <string name="percent_format">%d%%</string>
+
+    <!-- Community Tips -->
+    <string name="share_tip">Share Tip</string>
+    <string name="share_tip_title">Share Anonymous Tip</string>
+    <string name="tip_hint">Enter your tip here...</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
+    <string name="tip_submitted">Tip submitted for moderation.</string>
+    <string name="tip_moderated">Please avoid using inappropriate language.</string>
+    <string name="anonymous_author">Anonymous Parent</string>
+
+    <!-- Child Module / Registration -->
+    <string name="Child_name">Child Name</string>
+    <string name="data_of_birth">Date of Birth</string>
+    <string name="gender">Gender</string>
+    <string name="weight">Weight</string>
+    <string name="height">Height</string>
+    <string name="MUAC">MUAC</string>
+    <string name="register">Register</string>
+    <string name="back_button_desc">Back Button</string>
+    <string name="child_information">Child Information</string>
+    <string name="health_metrics">Health Metrics</string>
+
+    <string name="msg_fill_required">Please fill all required fields</string>
+    <string name="msg_register_success">Child Registered Successfully!</string>
+    <string name="registration_success">Registration Successful</string>
+    <string name="error_name_required">Name is required</string>
+    <string name="error_dob_required">Date of birth is required</string>
+    <string name="error_gender_required">Gender selection is required</string>
+
+    <!-- Growth Monitoring Activity -->
+    <string name="growth_monitoring_title">Growth Monitoring</string>
+    <string name="growth_monitoring_subtitle">Track growth progress and nutrition status</string>
+    <string name="growth_analysis_title">WHO Growth Analysis</string>
+    <string name="weight_age_standards">Weight-for-Age Standards</string>
+    <string name="age_months_hint">Age (0-60 Months)</string>
+    <string name="btn_plot_analyze">Plot &amp; Analyze</string>
+    <string name="clinical_assessment_header">Clinical Assessment</string>
+    <string name="who_curve_title">WHO Weight-for-Age Standard Curve</string>
+    <string name="legend_median"> Median </string>
+    <string name="legend_sd2"> -2 SD </string>
+    <string name="legend_sd3"> -3 SD </string>
+    <string name="legend_child"> Child</string>
+
+    <string name="label_weight">Weight (kg)</string>
+    <string name="label_height">Height (cm)</string>
+    <string name="label_muac">MUAC (cm)</string>
+    <string name="btn_calculate_status">Calculate Status</string>
+    <string name="header_assessment_result">Assessment Result</string>
+    <string name="placeholder_bmi_result">BMI result will appear here</string>
+    <string name="placeholder_muac_result">MUAC status will appear here</string>
+    <string name="muac_assessment_title">MUAC Assessment</string>
+
+    <string name="bmi_result">BMI: %.2f\nStatus: %s</string>
+    <string name="muac_status_result">MUAC Status: %s</string>
+    <string name="status_underweight">Underweight</string>
+    <string name="status_normal">Normal</string>
+    <string name="status_overweight">Overweight</string>
+
+    <!-- Growth Status Strings -->
+    <string name="risk_high">🔴 High Risk: Severely Underweight for Age</string>
+    <string name="risk_moderate">🟡 Moderate Risk: Underweight for Age</string>
+    <string name="risk_none">🟢 Healthy Growth for Age</string>
+    <string name="risk_prefix">WHO Risk Assessment: %s</string>
+
+    <!-- MUAC Status Strings -->
+    <string name="muac_severe">🔴 Severe Acute Malnutrition (SAM)</string>
+    <string name="muac_moderate">🟡 Moderate Acute Malnutrition (MAM)</string>
+    <string name="muac_normal">🟢 Normal Nutrition Status</string>
+    <string name="muac_prefix">MUAC Status: %s</string>
+
+    <string name="error_all_values">Enter all values</string>
+    <string name="error_invalid_numbers">Please enter valid numbers</string>
+
+    <string name="dummy_children_count">12</string>
+    <string name="dummy_alerts_count">2</string>
+    <string name="dummy_healthy_percent">85%</string>
+</resources>
