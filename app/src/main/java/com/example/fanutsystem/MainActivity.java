@@ -3,10 +3,7 @@ package com.example.fanutsystem;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.TranslateAnimation;
+import android.view.animation.DecelerateInterpolator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,64 +19,28 @@ public class MainActivity extends AppCompatActivity {
         // Initialize Notification Channel
         NotificationHelper.createNotificationChannel(this);
 
-        // Bind UI Elements for Animation
+        // Bind UI Elements
         View logoContainer = findViewById(R.id.logoContainer);
         View tvAppName = findViewById(R.id.tvAppName);
         View tvSubtitle = findViewById(R.id.tvSubtitle);
-        View medicalCard = findViewById(R.id.medicalInfoCard);
-        View maternalCard = findViewById(R.id.maternalInfoCard);
-        View selectLabel = findViewById(R.id.tvSelectLabel);
+        View tvServicesLabel = findViewById(R.id.tvServicesLabel);
         View btnChild = findViewById(R.id.btnChildModuleCard);
         View btnCommunity = findViewById(R.id.btnCommunityModuleCard);
-        View btnNotifications = findViewById(R.id.btnNotifications);
+        View medicalCard = findViewById(R.id.medicalInfoCard);
 
         // Setup Bottom Navigation
-        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
-        bottomNav.setSelectedItemId(R.id.nav_home);
-        bottomNav.setOnItemSelectedListener(item -> {
-            int itemId = item.getItemId();
-            if (itemId == R.id.nav_child) {
-                startActivity(new Intent(this, ChildModuleActivity.class));
-                return true;
-            } else if (itemId == R.id.nav_community) {
-                startActivity(new Intent(this, CommunityActivity.class));
-                return true;
-            } else if (itemId == R.id.nav_emergency) {
-                startActivity(new Intent(this, EmergencyActivity.class));
-                return true;
-            }
-            return itemId == R.id.nav_home;
-        });
+        NavigationUtils.setupBottomNavigation(this, R.id.nav_home);
 
-        // Create Custom Animations
-        Animation fadeIn = new AlphaAnimation(0, 1);
-        fadeIn.setDuration(800);
+        // Apply smooth entrance animations
+        startSmoothAnimator(logoContainer, 0);
+        startSmoothAnimator(tvAppName, 50);
+        startSmoothAnimator(tvSubtitle, 100);
+        startSmoothAnimator(tvServicesLabel, 150);
+        startSmoothAnimator(btnChild, 200);
+        startSmoothAnimator(btnCommunity, 250);
+        startSmoothAnimator(medicalCard, 300);
 
-        Animation slideUp = new TranslateAnimation(0, 0, 50, 0);
-        slideUp.setDuration(700);
-        
-        AnimationSet combined = new AnimationSet(true);
-        combined.addAnimation(fadeIn);
-        combined.addAnimation(slideUp);
-
-        // Apply Entrance Animations with Staggered Delays
-        startStaggeredAnimation(logoContainer, combined, 0);
-        startStaggeredAnimation(tvAppName, fadeIn, 100);
-        startStaggeredAnimation(tvSubtitle, fadeIn, 200);
-        startStaggeredAnimation(selectLabel, fadeIn, 400);
-        startStaggeredAnimation(btnChild, combined, 500);
-        startStaggeredAnimation(btnCommunity, combined, 600);
-        startStaggeredAnimation(medicalCard, combined, 700);
-        startStaggeredAnimation(maternalCard, combined, 800);
-
-        // Setup Notification Button
-        if (btnNotifications != null) {
-            btnNotifications.setOnClickListener(v -> {
-                // TODO: Navigate to notifications or show info dialog
-            });
-        }
-
-        // Navigation Logic for Cards (Keep these as well for intuitive tap)
+        // Navigation Logic for Cards
         if (btnChild != null) {
             btnChild.setOnClickListener(v -> {
                 startActivity(new Intent(MainActivity.this, ChildModuleActivity.class));
@@ -93,13 +54,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void startStaggeredAnimation(View view, Animation anim, long delay) {
+    private void startSmoothAnimator(View view, long delay) {
         if (view != null) {
-            view.setVisibility(View.INVISIBLE);
-            view.postDelayed(() -> {
-                view.setVisibility(View.VISIBLE);
-                view.startAnimation(anim);
-            }, delay);
+            view.setAlpha(0f);
+            view.setTranslationY(60f);
+            view.animate()
+                .alpha(1f)
+                .translationY(0f)
+                .setDuration(600)
+                .setStartDelay(delay)
+                .setInterpolator(new DecelerateInterpolator(1.5f))
+                .start();
         }
     }
 }
