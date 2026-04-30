@@ -4,91 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="#F5F9FF">
 
-    <!-- Premium Background Experience -->
-    <FrameLayout
+    <!-- Colorful Gradient Background -->
+    <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ImageView
-            android:id="@+id/backgroundImage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/background"
-            android:alpha="0.1"
-            android:contentDescription="@null" />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/bg_gradient_overlay" />
-    </FrameLayout>
+        android:layout_height="300dp"
+        android:background="@drawable/bg_gradient_overlay" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- Professional Top Header -->
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <!-- Clean Top Header -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:padding="20dp"
-            android:background="@color/white"
-            app:elevation="2dp">
+            android:gravity="center_vertical|space_between"
+            android:padding="16dp"
+            android:background="@android:color/transparent">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
                 <com.google.android.material.card.MaterialCardView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    app:cardCornerRadius="24dp"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    app:cardCornerRadius="12dp"
                     app:cardElevation="3dp"
-                    app:cardBackgroundColor="@color/primary_green">
+                    app:cardBackgroundColor="@color/white">
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:padding="10dp"
+                        android:padding="8dp"
                         android:src="@mipmap/logo1"
-                        android:background="@color/primary_green"
                         android:contentDescription="@string/desc_app_logo"
-                        android:tint="@color/white" />
+                        android:tint="@color/primary_green" />
                 </com.google.android.material.card.MaterialCardView>
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginStart="16dp">
+                    android:layout_marginStart="12dp">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/app_name"
-                        android:textSize="18sp"
+                        android:text="ANA ATHU"
+                        android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textColor="@color/primary_green"
-                        android:letterSpacing="0.02" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Health Tracking"
-                        android:textSize="11sp"
-                        android:textColor="@color/text_secondary" />
+                        android:textColor="@color/white" />
                 </LinearLayout>
             </LinearLayout>
-            <ImageView
-                android:id="@+id/btnNotifications"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@android:drawable/ic_dialog_info"
-                android:padding="8dp"
-                android:contentDescription="Notifications"
-                app:tint="@color/text_main"
-                android:background="?attr/selectableItemBackgroundBorderless" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
+        </LinearLayout>
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
