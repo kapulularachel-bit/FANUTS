@@ -96,7 +96,7 @@
                                 android:letterSpacing="0.02"
                                 android:text="@string/app_name"
                                 android:textColor="@color/white"
-                                android:textSize="26sp"
+                                android:textSize="28sp"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -114,18 +114,19 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:lineSpacingExtra="3dp"
+                        android:lineSpacingExtra="4dp"
                         android:text="@string/landing_hero_props"
-                        android:textColor="#CCE8F5E9"
-                        android:textSize="13sp" />
+                        android:textColor="#E8FFFFFF"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="match_parent"
+                    <TextViewwrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="14dp"
+                        android:layout_marginTop="12dp"
                         android:lineSpacingExtra="2dp"
                         android:text="@string/landing_trust_line"
-                        android:textColor="#99FFFFFF"
+                        android:textColor="#CCE8F5E9"
+                        android:textSize="1299FFFFFF"
                         android:textSize="11sp" />
 
                     <LinearLayout
@@ -187,29 +188,29 @@
                         android:id="@+id/tvSelectLabel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
+                        android:layout_marginBottom="14dp"
                         android:letterSpacing="0.1"
                         android:text="@string/landing_section_primary"
                         android:textAllCaps="true"
                         android:textColor="@color/text_secondary"
-                        android:textSize="11sp"
+                        android:textSize="12sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="14dp"
+                        android:layout_marginBottom="18dp"
                         android:lineSpacingExtra="2dp"
                         android:text="@string/accessibility_theme_hint"
                         android:textColor="@color/text_tertiary"
-                        android:textSize="12sp" />
+                        android:textSize="13sp" />
 
                     <!-- Primary actions -->
                     <LinearLayout
                         android:id="@+id/sectionNextAction"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginBottom="20dp"
                         android:baselineAligned="false"
                         android:orientation="horizontal">
 
@@ -236,8 +237,8 @@
                                 android:padding="16dp">
 
                                 <com.google.android.material.card.MaterialCardView
-                                    android:layout_width="48dp"
-                                    android:layout_height="48dp"
+                                    android:layout_width="52dp"
+                                    android:layout_height="52dp"
                                     app:cardBackgroundColor="@color/primary_green_light"
                                     app:cardCornerRadius="14dp"
                                     app:cardElevation="0dp">
@@ -257,7 +258,7 @@
                                     android:layout_marginTop="12dp"
                                     android:text="@string/label_child_care"
                                     android:textColor="@color/text_main"
-                                    android:textSize="16sp"
+                                    android:textSize="17sp"
                                     android:textStyle="bold" />
 
                                 <TextView
@@ -295,8 +296,8 @@
                                 android:padding="16dp">
 
                                 <com.google.android.material.card.MaterialCardView
-                                    android:layout_width="48dp"
-                                    android:layout_height="48dp"
+                                    android:layout_width="52dp"
+                                    android:layout_height="52dp"
                                     app:cardBackgroundColor="@color/pediatric_pink_light"
                                     app:cardCornerRadius="14dp"
                                     app:cardElevation="0dp">
@@ -316,7 +317,7 @@
                                     android:layout_marginTop="12dp"
                                     android:text="@string/label_community"
                                     android:textColor="@color/text_main"
-                                    android:textSize="16sp"
+                                    android:textSize="17sp"
                                     android:textStyle="bold" />
 
                                 <TextView
@@ -339,8 +340,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="22dp"
                         app:cardBackgroundColor="@color/bg_card"
-                        app:cardCornerRadius="16dp"
-                        app:cardElevation="0dp"
+                        app:cardCornerRadius="18dp"
+                        app:cardElevation="3dp"
                         app:rippleColor="@color/primary_green_light"
                         app:strokeColor="@color/divider_subtle"
                         app:strokeWidth="1dp">
@@ -353,8 +354,8 @@
                             android:padding="16dp">
 
                             <com.google.android.material.card.MaterialCardView
-                                android:layout_width="48dp"
-                                android:layout_height="48dp"
+                                android:layout_width="52dp"
+                                android:layout_height="52dp"
                                 app:cardBackgroundColor="@color/primary_green_light"
                                 app:cardCornerRadius="14dp"
                                 app:cardElevation="0dp">
@@ -380,7 +381,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="@string/vaccination_reminders"
                                     android:textColor="@color/text_main"
-                                    android:textSize="15sp"
+                                    android:textSize="16sp"
                                     android:textStyle="bold" />
 
                                 <TextView
@@ -405,12 +406,12 @@
                         android:id="@+id/labelQuickActions"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="12dp"
+                        android:layout_marginBottom="14dp"
                         android:letterSpacing="0.1"
                         android:text="@string/landing_section_guidance"
                         android:textAllCaps="true"
                         android:textColor="@color/text_secondary"
-                        android:textSize="11sp"
+                        android:textSize="12sp"
                         android:textStyle="bold" />
 
                     <LinearLayout
@@ -425,8 +426,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="12dp"
                             app:cardBackgroundColor="@color/bg_card"
-                            app:cardCornerRadius="16dp"
-                            app:cardElevation="0dp"
+                            app:cardCornerRadius="18dp"
+                            app:cardElevation="2dp"
                             app:strokeColor="@color/divider_subtle"
                             app:strokeWidth="1dp">
 
@@ -457,7 +458,7 @@
                                         android:text="@string/header_who_guidelines"
                                         android:textAllCaps="true"
                                         android:textColor="@color/accent_blue"
-                                        android:textSize="11sp"
+                                        android:textSize="12sp"
                                         android:textStyle="bold"
                                         android:letterSpacing="0.06" />
                                 </LinearLayout>
@@ -465,10 +466,10 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:lineHeight="20sp"
+                                    android:lineHeight="22sp"
                                     android:text="@string/medical_tip_content"
                                     android:textColor="@color/text_main"
-                                    android:textSize="14sp" />
+                                    android:textSize="15sp" />
                             </LinearLayout>
                         </com.google.android.material.card.MaterialCardView>
 
@@ -478,8 +479,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="24dp"
                             app:cardBackgroundColor="@color/bg_card"
-                            app:cardCornerRadius="16dp"
-                            app:cardElevation="0dp"
+                            app:cardCornerRadius="18dp"
+                            app:cardElevation="2dp"
                             app:strokeColor="@color/divider_subtle"
                             app:strokeWidth="1dp">
 
@@ -510,7 +511,7 @@
                                         android:text="@string/header_maternal_wellness"
                                         android:textAllCaps="true"
                                         android:textColor="@color/pediatric_pink"
-                                        android:textSize="11sp"
+                                        android:textSize="12sp"
                                         android:textStyle="bold"
                                         android:letterSpacing="0.06" />
                                 </LinearLayout>
@@ -518,10 +519,10 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:lineHeight="20sp"
+                                    android:lineHeight="22sp"
                                     android:text="@string/maternal_tip_content"
                                     android:textColor="@color/text_main"
-                                    android:textSize="14sp" />
+                                    android:textSize="15sp" />
                             </LinearLayout>
                         </com.google.android.material.card.MaterialCardView>
                     </LinearLayout>
@@ -535,7 +536,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/bg_card"
-            app:elevation="8dp"
+            app:elevation="12dp"
             app:itemIconTint="@color/primary_green"
             app:itemTextColor="@color/text_main"
             app:labelVisibilityMode="labeled"
@@ -546,13 +547,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="60dp"
         android:background="@color/background"
         android:gravity="center"
         android:paddingHorizontal="@dimen/screen_horizontal_padding"
-        android:paddingVertical="10dp"
+        android:paddingVertical="12dp"
         android:text="@string/medical_disclaimer"
         android:textColor="@color/text_tertiary"
-        android:textSize="10sp" />
+        android:textSize="11sp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
