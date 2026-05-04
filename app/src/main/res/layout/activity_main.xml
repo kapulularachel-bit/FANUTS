@@ -49,11 +49,12 @@
                     android:id="@+id/landingHero"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/landing_hero_shape"
+                    android:background="@drawable/landing_hero_gradient"
                     android:orientation="vertical"
                     android:paddingHorizontal="@dimen/hero_padding_horizontal"
                     android:paddingTop="@dimen/hero_padding_top"
-                    android:paddingBottom="@dimen/hero_padding_bottom">
+                    android:paddingBottom="@dimen/hero_padding_bottom"
+                    android:elevation="6dp">
 
                     <LinearLayout
                         android:id="@+id/logoContainer"
@@ -221,8 +222,8 @@
                             android:minWidth="@dimen/primary_action_card_min_width"
                             android:minHeight="156dp"
                             app:cardBackgroundColor="@color/bg_card"
-                            app:cardCornerRadius="16dp"
-                            app:cardElevation="0dp"
+                            app:cardCornerRadius="18dp"
+                            app:cardElevation="4dp"
                             app:rippleColor="@color/primary_green_light"
                             app:strokeColor="@color/divider_subtle"
                             app:strokeWidth="1dp">
@@ -280,8 +281,8 @@
                             android:minWidth="@dimen/primary_action_card_min_width"
                             android:minHeight="156dp"
                             app:cardBackgroundColor="@color/bg_card"
-                            app:cardCornerRadius="16dp"
-                            app:cardElevation="0dp"
+                            app:cardCornerRadius="18dp"
+                            app:cardElevation="4dp"
                             app:rippleColor="@color/pediatric_pink_light"
                             app:strokeColor="@color/divider_subtle"
                             app:strokeWidth="1dp">
