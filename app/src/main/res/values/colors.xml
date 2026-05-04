@@ -3,30 +3,48 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- Child-Friendly Medical Palette -->
-    <color name="primary">#2E7D32</color>
+    <!-- Modern Calming Green Palette (Sage & Forest) -->
     <color name="primary_green">#2E7D32</color>
+    <color name="primary_green_dark">#1B5E20</color>
+    <color name="primary_green_light">#E8F5E9</color>
+
+    <!-- Warm, Reassuring Neutrals -->
+    <color name="background">#F9FAFB</color>
     <color name="primary_light">#E8F5E9</color>
+    <color name="bg_light">#F9FAFB</color>
+    <color name="bg_card">#FFFFFF</color>
+    <color name="stroke_light">#E5E7EB</color>
+    <color name="text_input_stroke">#D1D5DB</color>
 
-    <color name="pediatric_blue">#0288D1</color>
-    <color name="pediatric_blue_light">#E1F5FE</color>
+    <!-- Text Hierarchy -->
+    <color name="text_main">#1F2937</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="text_tertiary">#9CA3AF</color>
 
-    <color name="pediatric_pink">#D81B60</color>
-    <color name="pediatric_pink_light">#FCE4EC</color>
-
-    <color name="pediatric_yellow">#FBC02D</color>
-    <color name="pediatric_yellow_light">#FFF9C4</color>
-
-    <color name="accent">#FFA000</color>
-    <color name="accent_light">#FFF8E1</color>
-
-    <color name="background">#FDFDFD</color>
-    <color name="text_main">#212121</color>
-    <color name="text_secondary">#757575</color>
-    <color name="gray_button">#BDBDBD</color>
+    <!-- Accent Colors -->
+    <color name="accent_blue">#0EA5E9</color>
+    <color name="accent_orange">#F97316</color>
 
     <!-- Status Colors -->
-    <color name="status_warning">#FBC02D</color>
-    <color name="status_danger">#D32F2F</color>
-    <color name="status_success">#388E3C</color>
+    <color name="status_success">#10B981</color>
+    <color name="status_warning">#F59E0B</color>
+    <color name="status_danger">#EF4444</color>
+    <color name="status_info">#3B82F6</color>
+
+    <!-- Old Color Palette (keeping for backward compatibility) -->
+    <color name="pediatric_blue">#0288D1</color>
+    <color name="pediatric_blue_light">#E1F5FE</color>
+    <color name="pediatric_pink">#D81B60</color>
+    <color name="pediatric_pink_light">#FCE4EC</color>
+    <color name="pediatric_yellow">#FBC02D</color>
+    <color name="pediatric_yellow_light">#FFF9C4</color>
+    <color name="accent">#FFA000</color>
+    <color name="accent_light">#FFF8E1</color>
+    <color name="gray_button">#BDBDBD</color>
+
+    <!-- Dividers / overlays (theme-aware via values-night) -->
+    <color name="divider_subtle">#10000000</color>
+    <color name="surface_muted">#F5F5F5</color>
+    <color name="surface_detail_section">#F0F0F0</color>
+    <color name="vaccine_progress_track">#CCE8F5E9</color>
 </resources>

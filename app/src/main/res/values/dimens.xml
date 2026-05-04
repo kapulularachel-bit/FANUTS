@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Edge padding scales by smallest-width (see values-sw600dp) -->
+    <dimen name="screen_horizontal_padding">16dp</dimen>
+    <dimen name="hero_padding_horizontal">@dimen/screen_horizontal_padding</dimen>
+    <dimen name="hero_padding_top">28dp</dimen>
+    <dimen name="hero_padding_bottom">22dp</dimen>
+    <dimen name="content_section_spacing_top">16dp</dimen>
+    <dimen name="content_section_spacing_bottom">10dp</dimen>
+    <!-- Large value = no clamp on phones; reduced on tablets (sw600dp) -->
+    <dimen name="main_content_max_width">10000dp</dimen>
+
+    <!-- Toolbar alignment (Material action icons are 24dp in a 48dp touch target; insets tune title vs actions) -->
+    <dimen name="toolbar_content_inset_start_no_nav">16dp</dimen>
+    <dimen name="toolbar_content_inset_start_with_nav">0dp</dimen>
+    <dimen name="toolbar_content_inset_end">12dp</dimen>
+    <!-- Extra space beside last action icon (matches common Material apps) -->
+    <dimen name="toolbar_notification_action_end_gap">10dp</dimen>
+
+    <dimen name="primary_action_card_min_width">140dp</dimen>
+    <dimen name="bottom_sheet_horizontal_padding">20dp</dimen>
+</resources>

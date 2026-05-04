@@ -1,9 +1,34 @@
 <resources>
     <string name="app_name">ANA ATHU</string>
+    <string name="accessibility_theme_hint">The app follows your device light or dark theme and your font size settings.</string>
     <string name="subtitle">Comprehensive Child &amp; Maternal Health Tracking</string>
+    <string name="landing_hero_tagline">Child &amp; maternal health support</string>
+    <string name="landing_hero_props">Growth · MUAC · Immunization · WHO-aligned guidance</string>
+    <string name="landing_trust_line">Use your nearest health facility for care—this app supports tracking, not diagnosis.</string>
+    <string name="landing_section_primary">What you can do</string>
+    <string name="landing_section_guidance">Trusted information</string>
+    <string name="lang_english">English</string>
+    <string name="lang_chichewa">Chichewa</string>
+    <string name="landing_child_card_sub">Profiles, growth charts, nutrition screening &amp; referrals</string>
+    <string name="landing_community_card_sub">Anonymous tips and peer support</string>
+
+    <string name="home_toolbar_title">Home</string>
+    <string name="notifications_menu_title">Alerts</string>
+    <string name="notifications_menu_cd">Alerts and vaccination reminders</string>
+    <string name="alerts_sheet_title">Alerts &amp; reminders</string>
+    <string name="alerts_sheet_subtitle">Immunization dates for your children and quick guidance. Critical alerts may also appear as system notifications.</string>
+    <string name="alerts_sheet_immunization_section">Immunization</string>
+    <string name="alerts_sheet_general_section">General</string>
+    <string name="alerts_sheet_empty_immunization">No overdue or imminent doses for your registered children.</string>
+    <string name="alerts_sheet_open_immunization">Open immunization register</string>
+    <string name="alerts_vaccine_row_detail_fmt">%1$s · Due %2$s</string>
+    <string name="alert_general_tip_facility">If your child is unwell or not feeding well, visit your nearest health facility.</string>
+    <string name="alert_general_register_child">Register a child profile to see personalized vaccination reminders here.</string>
+    <string name="alert_general_system_notifications">Immunization reminders can also appear in your notification shade when scheduled.</string>
     <string name="btn_child_module">Child Tracking</string>
     <string name="desc_app_logo">App Logo</string>
     <string name="desc_growth_icon">Growth Icon</string>
+    <string name="back_button_desc">Go back</string>
 
     <!-- Medical Disclaimer -->
     <string name="medical_disclaimer">⚠️ DISCLAIMER: This app does not replace professional medical care. Always consult a health worker for diagnosis and treatment.</string>
@@ -12,6 +37,14 @@
     <string name="header_select_module">Services</string>
     <string name="child_module_desc">Nutritional Growth &amp; Health Monitoring</string>
     <string name="desc_forward_icon">Open Module</string>
+    <string name="welcome_greeting">Welcome Back,</string>
+    <string name="welcome_sub_greeting">Your family\'s health tracker is ready.</string>
+    <string name="header_health_dashboard">HEALTH DASHBOARD</string>
+    <string name="header_health_guidance">HEALTH GUIDANCE</string>
+    <string name="label_child_care">Child Care</string>
+    <string name="label_community">Community</string>
+    <string name="header_who_guidelines">WHO GUIDELINES</string>
+    <string name="header_maternal_wellness">MATERNAL WELLNESS</string>
 
     <!-- Authentic Medical Content -->
     <string name="medical_tip_title">WHO Health Guidance</string>
@@ -56,9 +89,27 @@
     <string name="child_avatar_desc">Child Avatar</string>
     <string name="default_child_name">Child Name</string>
     <string name="default_child_details">Gender | DOB</string>
-    <string name="muac_label">MUAC: %s cm</string>
+    <string name="muac_display_label">MUAC: %s cm</string>
     <string name="add_child_desc">Add Child</string>
     <string name="empty_records_message">No children registered yet.</string>
+
+    <!-- Child care module (hub) -->
+    <string name="child_care_title">Child care</string>
+    <string name="child_care_toolbar_subtitle">Growth, nutrition &amp; immunization</string>
+    <string name="child_care_overview_section">Overview</string>
+    <string name="child_care_stat_registered_label">Registered children</string>
+    <string name="child_care_stat_growth_title">Growth</string>
+    <string name="child_care_stat_growth_sub">WHO-based charts</string>
+    <string name="child_care_stat_muac_title">MUAC</string>
+    <string name="child_care_stat_muac_sub">Nutrition screening</string>
+    <string name="child_care_tools_section">Clinical tools</string>
+    <string name="child_care_tools_hint">Choose a workflow below. Data stays on this device.</string>
+    <string name="tile_register_sub">Create a digital health profile</string>
+    <string name="tile_records_sub">Open the register of saved children</string>
+    <string name="tile_growth_sub">Track weight-for-age and trends</string>
+    <string name="tile_muac_sub">Assess nutritional risk status</string>
+    <string name="tile_imci_sub">Screen using IMCI danger signs</string>
+    <string name="tile_vaccination_sub">Immunization register &amp; due doses</string>
 
     <!-- Detail Strings -->
     <string name="detail_title">Child Details</string>
@@ -97,14 +148,85 @@
     <!-- Vaccination Strings -->
     <string name="vaccination_title">Malawi EPI Schedule</string>
     <string name="vaccination_subtitle">Reminders for essential immunizations</string>
+    <string name="vaccination_register_title">Immunization register</string>
+    <string name="vaccination_register_subtitle">National EPI · facility-style dose chart</string>
+    <string name="immunization_patient_strip_label">Child on register</string>
+    <string name="immunization_patient_dob_age_fmt">DOB %1$s · %2$s</string>
+    <string name="immunization_sex_fmt">Sex: %s</string>
+    <string name="immunization_age_years_months_fmt">%1$d yr %2$d mo old</string>
+    <plurals name="immunization_age_months">
+        <item quantity="one">%d month old</item>
+        <item quantity="other">%d months old</item>
+    </plurals>
+    <plurals name="immunization_age_years">
+        <item quantity="one">%d year old</item>
+        <item quantity="other">%d years old</item>
+    </plurals>
+    <string name="immunization_register_footer">Tap a vaccine row when the dose was administered at the facility (records date). Schedule follows Malawi infant EPI contacts.</string>
+    <string name="immunization_due_line_fmt">Scheduled due %1$s</string>
+    <string name="immunization_administered_fmt">Facility record · given %1$s</string>
+    <string name="immunization_administered_unknown">Facility record · marked given</string>
+
+    <string-array name="immunization_contact_titles">
+        <item>Birth contact (day 0)</item>
+        <item>6-week contact</item>
+        <item>10-week contact</item>
+        <item>14-week contact</item>
+        <item>6-month contact</item>
+        <item>9-month contact</item>
+        <item>18-month contact</item>
+    </string-array>
+    <string-array name="immunization_contact_programme">
+        <item>Programme: BCG · OPV birth dose</item>
+        <item>Programme: OPV1 · Penta1 · PCV1 · Rotavirus 1</item>
+        <item>Programme: OPV2 · Penta2 · PCV2 · Rotavirus 2</item>
+        <item>Programme: OPV3 · Penta3 · PCV3 · IPV</item>
+        <item>Programme: Vitamin A (1st dose)</item>
+        <item>Programme: Measles–Rubella 1</item>
+        <item>Programme: Measles–Rubella 2</item>
+    </string-array>
+
+    <string name="vaccine_route_bcg">Route/site: intradermal · left upper arm</string>
+    <string name="vaccine_route_opv">Route: oral</string>
+    <string name="vaccine_route_penta">Route/site: intramuscular · anterolateral thigh</string>
+    <string name="vaccine_route_pcv">Route/site: intramuscular · anterolateral thigh</string>
+    <string name="vaccine_route_rota">Route: oral</string>
+    <string name="vaccine_route_ipv">Route/site: intramuscular · thigh</string>
+    <string name="vaccine_route_vita">Route: oral (with oil)</string>
+    <string name="vaccine_route_mr">Route/site: subcutaneous · upper arm</string>
+    <string name="vaccine_route_default">Route/site: per national EPI chart</string>
     <string name="vaccine_name">Vaccine</string>
     <string name="vaccine_due_date">Due Date</string>
     <string name="vaccine_status">Status</string>
     <string name="immunization_progress">Immunization Progress</string>
     <string name="vaccine_count_format">%1$d/%2$d</string>
     <string name="percent_format">%d%%</string>
+    <string name="vaccination_select_child">Child profile</string>
+    <string name="vaccination_no_children">Register a child first to build an immunization schedule from their date of birth.</string>
+    <string name="vaccination_invalid_dob">Could not read this child\'s date of birth. Use yyyy-MM-dd when registering.</string>
+    <string name="vaccination_next_due_fmt">Next due: %1$s (%2$s)</string>
+    <string name="vaccination_all_complete">All recorded doses are marked complete for this child.</string>
+    <string name="vaccine_status_overdue">Overdue</string>
+    <string name="vaccine_status_due_soon">Due soon</string>
+    <string name="notify_vaccination_title">Immunization reminder</string>
+    <string name="notify_vaccination_generic_child">your children</string>
+    <string name="notify_vaccination_overdue_body">%1$d immunization dose(s) are overdue. Tap to review (e.g. %2$s).</string>
+    <string name="notify_vaccination_upcoming_body">%1$d dose(s) due within the next week. Tap to review (e.g. %2$s).</string>
 
     <!-- Community Tips -->
+    <string name="community_title">Community hub</string>
+    <string name="community_subtitle">Anonymous parent tips for daily child care</string>
+    <string name="community_intro_title">How this space works</string>
+    <string name="community_intro_body">Read practical advice shared by caregivers. Keep posts respectful and seek a health facility when symptoms are serious.</string>
+    <string name="community_filter_all">All tips</string>
+    <string name="community_filter_nutrition">Nutrition</string>
+    <string name="community_filter_hygiene">Hygiene</string>
+    <string name="community_filter_vaccination">Vaccination</string>
+    <string name="community_filter_illness">Illness care</string>
+    <string name="community_list_section_title">Recent community advice</string>
+    <string name="community_empty_tips">No tips in this category yet.</string>
+    <string name="community_tip_source">Community tip</string>
+    <string name="community_translation_pending">Translation in progress...</string>
     <string name="share_tip">Share Tip</string>
     <string name="share_tip_title">Share Anonymous Tip</string>
     <string name="tip_hint">Enter your tip here...</string>
@@ -114,24 +236,41 @@
     <string name="tip_moderated">Please avoid using inappropriate language.</string>
     <string name="anonymous_author">Anonymous Parent</string>
 
-    <!-- Child Module / Registration -->
-    <string name="Child_name">Child Name</string>
-    <string name="data_of_birth">Date of Birth</string>
-    <string name="gender">Gender</string>
-    <string name="weight">Weight</string>
-    <string name="height">Height</string>
-    <string name="MUAC">MUAC</string>
-    <string name="register">Register</string>
-    <string name="back_button_desc">Back Button</string>
-    <string name="child_information">Child Information</string>
-    <string name="health_metrics">Health Metrics</string>
+    <!-- Child Registration Screen - Modern UI -->
+    <string name="reg_subtitle">Create a health profile</string>
+    <string name="progress_step">Step 1 of 1</string>
+    <string name="child_name_hint">Full name</string>
+    <string name="child_name_helper">Enter child\'s full name</string>
+    <string name="dob_hint">Date of birth</string>
+    <string name="dob_helper">Select child\'s date of birth</string>
+    <string name="gender_label">Gender</string>
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
+    <string name="gender_other">Other</string>
+    <string name="child_information">Child information</string>
+    <string name="health_metrics">Health metrics</string>
+    <string name="child_info_icon">Child information icon</string>
+    
+    <string name="weight_hint">Weight</string>
+    <string name="weight_unit">kg</string>
+    <string name="height_hint">Height</string>
+    <string name="height_unit">cm</string>
+    <string name="muac_label">MUAC</string>
+    <string name="muac_registration_hint">Mid-upper arm circumference</string>
+    <string name="muac_unit">cm</string>
+    <string name="muac_helper">Measure arm circumference at midpoint</string>
+    <string name="muac_info_tooltip">MUAC measures child nutrition status. A simple way to identify malnutrition before it becomes severe.</string>
+    <string name="health_metrics_icon">Health metrics icon</string>
+    
+    <string name="registration_note">Health data is stored locally on this device for privacy</string>
+    <string name="register_button">Register Child</string>
+    <string name="registration_success">Registration successful</string>
 
-    <string name="msg_fill_required">Please fill all required fields</string>
-    <string name="msg_register_success">Child Registered Successfully!</string>
-    <string name="registration_success">Registration Successful</string>
-    <string name="error_name_required">Name is required</string>
-    <string name="error_dob_required">Date of birth is required</string>
-    <string name="error_gender_required">Gender selection is required</string>
+    <string name="error_name_required">Please enter child\'s name</string>
+    <string name="error_name_too_short">Name must be at least 2 characters</string>
+    <string name="error_dob_required">Please select date of birth</string>
+    <string name="error_gender_required">Please select a gender</string>
+
 
     <!-- Growth Monitoring Activity -->
     <string name="growth_monitoring_title">Growth Monitoring</string>
@@ -141,11 +280,15 @@
     <string name="age_months_hint">Age (0-60 Months)</string>
     <string name="btn_plot_analyze">Plot &amp; Analyze</string>
     <string name="clinical_assessment_header">Clinical Assessment</string>
-    <string name="who_curve_title">WHO Weight-for-Age Standard Curve</string>
+    <string name="who_curve_title">WHO weight-for-age (0–60 months)</string>
     <string name="legend_median"> Median </string>
     <string name="legend_sd2"> -2 SD </string>
     <string name="legend_sd3"> -3 SD </string>
     <string name="legend_child"> Child</string>
+    <string name="legend_median_who"> WHO median</string>
+    <string name="legend_sd2_who"> WHO −2 SD</string>
+    <string name="legend_sd3_who"> WHO −3 SD</string>
+    <string name="legend_child_point"> Your child</string>
 
     <string name="label_weight">Weight (kg)</string>
     <string name="label_height">Height (cm)</string>
@@ -156,26 +299,59 @@
     <string name="placeholder_muac_result">MUAC status will appear here</string>
     <string name="muac_assessment_title">MUAC Assessment</string>
 
-    <string name="bmi_result">BMI: %.2f\nStatus: %s</string>
+    <string name="bmi_result">BMI: %1$.2f\nStatus: %2$s</string>
     <string name="muac_status_result">MUAC Status: %s</string>
     <string name="status_underweight">Underweight</string>
     <string name="status_normal">Normal</string>
     <string name="status_overweight">Overweight</string>
 
-    <!-- Growth Status Strings -->
-    <string name="risk_high">🔴 High Risk: Severely Underweight for Age</string>
-    <string name="risk_moderate">🟡 Moderate Risk: Underweight for Age</string>
-    <string name="risk_none">🟢 Healthy Growth for Age</string>
+    <!-- Growth Status Strings (WHO weight-for-age vs −2/−3 SD) -->
+    <string name="risk_high">🔴 High risk: weight below WHO −3 SD for age</string>
+    <string name="risk_moderate">🟡 Moderate risk: weight below WHO −2 SD for age</string>
+    <string name="risk_none">🟢 Weight-for-age within healthy range (≥ WHO −2 SD)</string>
     <string name="risk_prefix">WHO Risk Assessment: %s</string>
+    <string name="growth_who_intro">WHO Child Growth Standards (0–60 months). Pick the reference curve for the child\'s sex. Plotted lines are median, −2 SD and −3 SD for weight-for-age.</string>
+    <string name="growth_sex_label">Reference curve</string>
+    <string name="growth_chart_axis_hint">Horizontal axis: age (months). Vertical axis: weight (kg).</string>
+    <string name="growth_age_outside_who_note">Note: WHO weight-for-age references are for ages 0–60 months. Values shown use the nearest month in range for comparison.</string>
 
     <!-- MUAC Status Strings -->
     <string name="muac_severe">🔴 Severe Acute Malnutrition (SAM)</string>
     <string name="muac_moderate">🟡 Moderate Acute Malnutrition (MAM)</string>
     <string name="muac_normal">🟢 Normal Nutrition Status</string>
     <string name="muac_prefix">MUAC Status: %s</string>
+    <string name="muac_age_scope_warning">Standard MUAC colour bands are for children 6–59 months—seek clinical advice outside this age range.</string>
+    <string name="muac_reference_ranges_body">• Red — under 11.5 cm: Severe Acute Malnutrition (SAM)\n• Yellow — 11.5 cm up to below 12.5 cm: Moderate Acute Malnutrition (MAM)\n• Green — 12.5 cm and above: normal on typical MUAC tapes for 6–59 months</string>
+    <string name="muac_tape_general_note">Use an approved MUAC tape and trained measurement technique. Follow your programme\'s referral rules.</string>
+    <string name="muac_tape_13_5_note">Some programmes use tapes where the green (normal) zone starts above 13.5 cm. If your tape shows a higher cutoff, follow local guidance.</string>
 
     <string name="error_all_values">Enter all values</string>
     <string name="error_invalid_numbers">Please enter valid numbers</string>
+
+    <string name="critical_alert_title">Critical health warning</string>
+    <string name="critical_alert_message">Your child may be at serious risk. Please visit a health facility as soon as possible.\n\nDetected risks:\n%1$s</string>
+    <string name="critical_alert_emergency">Emergency help</string>
+    <string name="critical_alert_dismiss">Dismiss</string>
+    <string name="emergency_shortcuts_title">Emergency shortcuts</string>
+    <string name="nearby_facilities_btn">Nearby facilities</string>
+    <string name="nearby_facilities_title">Nearby health facilities</string>
+
+    <!-- Emergency contacts screen -->
+    <string name="emergency_screen_title">Emergency contacts</string>
+    <string name="emergency_toolbar_subtitle">Quick dial &amp; referral directory</string>
+    <string name="emergency_section_immediate">Immediate actions</string>
+    <string name="emergency_intro_title">Before you dial</string>
+    <string name="emergency_intro_body">Use the national ambulance line for emergencies. Contact a health worker for urgent advice. For facility lists, dial the number shown — verify hours and services locally.</string>
+    <string name="emergency_ambulance_title">National ambulance</string>
+    <string name="emergency_ambulance_body">Emergency medical transport (Malawi)</string>
+    <string name="emergency_ambulance_cta">Call 998</string>
+    <string name="emergency_worker_title">Health worker helpline</string>
+    <string name="emergency_worker_body">Urgent telephone advice (demo number — replace with your programme line)</string>
+    <string name="emergency_worker_cta">Call helpline</string>
+    <string name="emergency_section_facilities">Referral hospitals &amp; health centres</string>
+    <string name="emergency_facility_services_fmt">%1$s · %2$s</string>
+    <string name="emergency_dial_facility_cd">Dial %1$s</string>
+    <string name="emergency_footer_note">Numbers are illustrative. Confirm with your district health office.</string>
 
     <string name="dummy_children_count">12</string>
     <string name="dummy_alerts_count">2</string>

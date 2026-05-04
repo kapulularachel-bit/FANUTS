@@ -14,15 +14,14 @@
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            app:contentScrim="@color/pediatric_pink"
+            app:contentScrim="@color/primary_green_dark"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:titleEnabled="false">
 
-            <!-- Header Background with warmer feel -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/pediatric_pink"
+                android:background="@drawable/header_gradient"
                 app:layout_collapseMode="parallax" />
 
             <LinearLayout
@@ -36,18 +35,18 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Community Hub"
+                    android:text="@string/community_title"
                     android:textColor="@color/white"
-                    android:textSize="32sp"
+                    android:textSize="30sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Safe, anonymous support for Malawian parents"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/community_subtitle"
                     android:textColor="#E0FFFFFF"
-                    android:textSize="14sp"
-                    android:layout_marginTop="4dp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <com.google.android.material.appbar.MaterialToolbar
@@ -74,10 +73,45 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp"
             android:background="@color/background">
 
-            <!-- Category Filter -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/bg_card"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp"
+                app:strokeColor="@color/divider_subtle"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/community_intro_title"
+                        android:textColor="@color/text_main"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="@string/community_intro_body"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -91,41 +125,75 @@
                     app:singleSelection="true">
 
                     <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFilterAll"
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="All Tips"
+                        android:text="@string/community_filter_all"
                         android:checked="true"
-                        app:chipBackgroundColor="@color/pediatric_pink_light"
-                        app:rippleColor="@color/pediatric_pink" />
+                        app:chipBackgroundColor="@color/primary_light"
+                        app:rippleColor="@color/primary_green" />
 
                     <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFilterNutrition"
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nutrition" />
+                        android:text="@string/community_filter_nutrition" />
 
                     <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFilterHygiene"
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Hygiene" />
+                        android:text="@string/community_filter_hygiene" />
 
                     <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFilterVaccination"
                         style="@style/Widget.MaterialComponents.Chip.Choice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Vaccination" />
+                        android:text="@string/community_filter_vaccination" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFilterIllness"
+                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/community_filter_illness" />
                 </com.google.android.material.chip.ChipGroup>
             </HorizontalScrollView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="@string/community_list_section_title"
+                android:textColor="@color/text_main"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <ListView
                 android:id="@+id/lvCommunityTips"
                 android:layout_width="match_parent"
-                android:layout_height="800dp"
+                android:layout_height="wrap_content"
                 android:divider="@android:color/transparent"
                 android:dividerHeight="0dp"
+                android:nestedScrollingEnabled="true"
                 android:scrollbars="none" />
+
+            <TextView
+                android:id="@+id/tvCommunityEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/surface_muted"
+                android:gravity="center"
+                android:padding="12dp"
+                android:text="@string/community_empty_tips"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:visibility="gone" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -136,7 +204,7 @@
                 android:textColor="@color/text_secondary"
                 android:gravity="center"
                 android:padding="16dp"
-                android:background="#F5F5F5"/>
+                android:background="@color/surface_muted"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

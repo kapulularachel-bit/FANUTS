@@ -37,7 +37,18 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.mpandroidchart)
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.work.runtime)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.auth)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+}
+
+if (file("google-services.json").exists()) {
+    apply(plugin = "com.google.gms.google-services")
+} else {
+    logger.lifecycle("google-services.json not found in app/. Firebase auto-config is disabled for this build.")
 }

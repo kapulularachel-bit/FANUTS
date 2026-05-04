@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="screen_horizontal_padding">28dp</dimen>
+    <dimen name="hero_padding_horizontal">32dp</dimen>
+    <dimen name="hero_padding_top">36dp</dimen>
+    <dimen name="hero_padding_bottom">26dp</dimen>
+    <dimen name="content_section_spacing_top">20dp</dimen>
+    <dimen name="content_section_spacing_bottom">12dp</dimen>
+    <dimen name="main_content_max_width">680dp</dimen>
+
+    <dimen name="toolbar_content_inset_start_no_nav">20dp</dimen>
+    <dimen name="toolbar_content_inset_end">14dp</dimen>
+    <dimen name="toolbar_notification_action_end_gap">12dp</dimen>
+
+    <dimen name="primary_action_card_min_width">240dp</dimen>
+
+    <dimen name="bottom_sheet_horizontal_padding">28dp</dimen>
+</resources>

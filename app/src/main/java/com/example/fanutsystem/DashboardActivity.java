@@ -3,10 +3,11 @@ package com.example.fanutsystem;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class DashboardActivity extends AppCompatActivity {
     private RecyclerView rvChildren;
     private ChildAdapter adapter;
     private List<Child> childList;
-    private TextView tvEmpty;
+    private View emptyState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,7 @@ public class DashboardActivity extends AppCompatActivity {
         // Initialize UI
         rvChildren = findViewById(R.id.rvChildren);
         FloatingActionButton fabAddChild = findViewById(R.id.fabAddChild);
-        tvEmpty = findViewById(R.id.tvEmpty); // Note: I'll make sure this exists in the layout
+        emptyState = findViewById(R.id.emptyState);
 
         // Setup RecyclerView
         rvChildren.setLayoutManager(new LinearLayoutManager(this));
@@ -39,10 +40,9 @@ public class DashboardActivity extends AppCompatActivity {
             startActivity(intent);
         });
         
-        // Setup back button in toolbar
-        View toolbar = findViewById(R.id.toolbar);
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
         if (toolbar != null) {
-            toolbar.setOnClickListener(v -> finish());
+            toolbar.setNavigationOnClickListener(v -> finish());
         }
     }
 
@@ -50,19 +50,38 @@ public class DashboardActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         refreshChildList();
+        syncChildrenFromCloud();
     }
 
     private void refreshChildList() {
         childList = ChildStorage.getChildren(this);
         
         if (childList.isEmpty()) {
-            if (tvEmpty != null) tvEmpty.setVisibility(View.VISIBLE);
+            if (emptyState != null) emptyState.setVisibility(View.VISIBLE);
             rvChildren.setVisibility(View.GONE);
         } else {
-            if (tvEmpty != null) tvEmpty.setVisibility(View.GONE);
+            if (emptyState != null) emptyState.setVisibility(View.GONE);
             rvChildren.setVisibility(View.VISIBLE);
             adapter = new ChildAdapter(childList);
             rvChildren.setAdapter(adapter);
         }
+    }
+
+    private void syncChildrenFromCloud() {
+        FirebaseRepository.getInstance().fetchChildren(new FirebaseRepository.ChildrenCallback() {
+            @Override
+            public void onSuccess(List<Child> children) {
+                if (children == null || children.isEmpty()) {
+                    return;
+                }
+                ChildStorage.upsertChildren(DashboardActivity.this, children);
+                refreshChildList();
+            }
+
+            @Override
+            public void onError(Exception exception) {
+                // Keep local data available even if network/cloud is unavailable.
+            }
+        });
     }
 }

@@ -3,15 +3,20 @@ package com.example.fanutsystem;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
+import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.appbar.MaterialToolbar;
-import com.google.android.material.button.MaterialButton;
+import com.google.android.material.card.MaterialCardView;
+
 import java.util.List;
 
 public class EmergencyActivity extends AppCompatActivity {
+
+    private static final int FACILITY_META_MAX_LEN = 140;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,41 +28,55 @@ public class EmergencyActivity extends AppCompatActivity {
             toolbar.setNavigationOnClickListener(v -> finish());
         }
 
-        // 1. National Ambulance Shortcut
         findViewById(R.id.btnCallAmbulance).setOnClickListener(v -> makeCall("998"));
-
-        // 2. Health Worker Shortcut
         findViewById(R.id.btnCallWorker).setOnClickListener(v -> makeCall("+265888123456"));
 
-        // 3. Populate Nearby Facilities
         LinearLayout container = findViewById(R.id.facilityContainer);
+        LayoutInflater inflater = LayoutInflater.from(this);
         List<KnowledgeBase.HealthFacility> facilities = KnowledgeBase.getNearbyHealthFacilities();
 
         for (KnowledgeBase.HealthFacility facility : facilities) {
-            MaterialButton btn = new MaterialButton(this, null, com.google.android.material.R.attr.materialButtonStyle);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT);
-            params.setMargins(0, 0, 0, 16);
-            btn.setLayoutParams(params);
-            btn.setText("Call " + facility.getName());
-            btn.setAllCaps(false);
-            btn.setIcon(getDrawable(android.R.drawable.ic_menu_call));
-            btn.setIconGravity(MaterialButton.ICON_GRAVITY_TEXT_START);
-            btn.setBackgroundTintList(getColorStateList(R.color.white));
-            btn.setTextColor(getColor(R.color.text_main));
-            btn.setStrokeWidth(2);
-            btn.setStrokeColor(getColorStateList(R.color.gray_button));
-            btn.setCornerRadius(16);
-            
-            btn.setOnClickListener(v -> makeCall(facility.getContact()));
-            container.addView(btn);
+            MaterialCardView card =
+                    (MaterialCardView) inflater.inflate(R.layout.item_emergency_facility_card, container, false);
+
+            TextView tvName = card.findViewById(R.id.tvFacilityName);
+            TextView tvMeta = card.findViewById(R.id.tvFacilityMeta);
+            TextView tvPhone = card.findViewById(R.id.tvFacilityPhone);
+
+            tvName.setText(facility.getName());
+            tvPhone.setText(facility.getContact());
+
+            String services = facility.getServices() != null ? facility.getServices() : "";
+            String meta = getString(R.string.emergency_facility_services_fmt,
+                    facility.getDistrict(), services);
+            if (meta.length() > FACILITY_META_MAX_LEN) {
+                meta = meta.substring(0, FACILITY_META_MAX_LEN - 1).trim() + "…";
+            }
+            tvMeta.setText(meta);
+
+            card.setOnClickListener(v -> makeCall(facility.getContact()));
+            card.setContentDescription(getString(R.string.emergency_dial_facility_cd, facility.getName()));
+
+            container.addView(card);
         }
+
+        NavigationUtils.setupBottomNavigation(this, R.id.nav_emergency);
     }
 
-    private void makeCall(String number) {
+    private void makeCall(String rawNumber) {
+        if (rawNumber == null || rawNumber.isEmpty()) {
+            return;
+        }
+        String sanitized = sanitizedPhone(rawNumber);
         Intent intent = new Intent(Intent.ACTION_DIAL);
-        intent.setData(Uri.parse("tel:" + number));
+        intent.setData(Uri.fromParts("tel", sanitized, null));
         startActivity(intent);
+    }
+
+    private static String sanitizedPhone(String raw) {
+        if (raw == null) {
+            return "";
+        }
+        return raw.replaceAll("\\s+", "");
     }
 }

@@ -4,17 +4,23 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.appbar.MaterialToolbar;
-import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CommunityActivity extends AppCompatActivity {
+
+    private static final String CATEGORY_ALL = "ALL";
+    private static final String CATEGORY_NUTRITION = "Nutrition";
+    private static final String CATEGORY_HYGIENE = "Hygiene";
+    private static final String CATEGORY_VACCINATION = "Vaccination";
+    private static final String CATEGORY_ILLNESS_CARE = "Illness care";
 
     private CommunityTipsAdapter adapter;
     private List<CommunityTip> allTips;
@@ -31,6 +37,8 @@ public class CommunityActivity extends AppCompatActivity {
         }
 
         ListView listView = findViewById(R.id.lvCommunityTips);
+        TextView emptyView = findViewById(R.id.tvCommunityEmpty);
+        listView.setEmptyView(emptyView);
         allTips = KnowledgeBase.getPreloadedTips();
         displayedTips = new ArrayList<>(allTips);
         
@@ -41,20 +49,24 @@ public class CommunityActivity extends AppCompatActivity {
         ChipGroup chipGroup = findViewById(R.id.chipGroupFilters);
         chipGroup.setOnCheckedStateChangeListener((group, checkedIds) -> {
             if (checkedIds.isEmpty()) {
-                filterTips("All Tips");
+                filterTips(CATEGORY_ALL);
             } else {
-                Chip chip = findViewById(checkedIds.get(0));
-                filterTips(chip.getText().toString());
+                filterTips(categoryForChipId(checkedIds.get(0)));
             }
         });
 
         ExtendedFloatingActionButton fabShare = findViewById(R.id.fabShareTip);
         fabShare.setOnClickListener(v -> showShareTipDialog());
+
+        // Setup Bottom Navigation
+        NavigationUtils.setupBottomNavigation(this, R.id.nav_community);
+
+        loadCloudTips();
     }
 
     private void filterTips(String category) {
         displayedTips.clear();
-        if (category.equals("All Tips")) {
+        if (CATEGORY_ALL.equals(category)) {
             displayedTips.addAll(allTips);
         } else {
             for (CommunityTip tip : allTips) {
@@ -100,10 +112,49 @@ public class CommunityActivity extends AppCompatActivity {
         if (isHarmful) {
             Toast.makeText(this, R.string.tip_moderated, Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(this, R.string.tip_submitted, Toast.LENGTH_LONG).show();
-            CommunityTip newTip = new CommunityTip(tipText, "Processing translation...", "Nutrition");
+            CommunityTip newTip = new CommunityTip(
+                    tipText,
+                    getString(R.string.community_translation_pending),
+                    CATEGORY_NUTRITION
+            );
             allTips.add(0, newTip);
-            filterTips("All Tips"); // Reset filter to show the new tip
+            filterTips(CATEGORY_ALL); // Reset filter to show the new tip
+            FirebaseRepository.getInstance().saveCommunityTip(newTip);
+            Toast.makeText(this, R.string.tip_submitted, Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void loadCloudTips() {
+        FirebaseRepository.getInstance().fetchCommunityTips(new FirebaseRepository.TipsCallback() {
+            @Override
+            public void onSuccess(List<CommunityTip> tips) {
+                if (tips == null || tips.isEmpty()) {
+                    return;
+                }
+                allTips.addAll(0, tips);
+                filterTips(CATEGORY_ALL);
+            }
+
+            @Override
+            public void onError(Exception exception) {
+                // Keep bundled tips visible when cloud fetch fails.
+            }
+        });
+    }
+
+    private String categoryForChipId(int chipId) {
+        if (chipId == R.id.chipFilterNutrition) {
+            return CATEGORY_NUTRITION;
+        }
+        if (chipId == R.id.chipFilterHygiene) {
+            return CATEGORY_HYGIENE;
+        }
+        if (chipId == R.id.chipFilterVaccination) {
+            return CATEGORY_VACCINATION;
+        }
+        if (chipId == R.id.chipFilterIllness) {
+            return CATEGORY_ILLNESS_CARE;
+        }
+        return CATEGORY_ALL;
     }
 }

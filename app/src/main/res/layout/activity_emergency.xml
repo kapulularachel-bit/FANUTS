@@ -1,111 +1,255 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/background">
+    android:background="@color/background"
+    tools:context=".EmergencyActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/status_danger"
-            app:title="Emergency Contacts"
-            app:titleTextColor="@color/white"
-            app:navigationIcon="@android:drawable/ic_menu_revert"
-            app:navigationIconTint="@color/white" />
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <LinearLayout
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
+            android:background="@color/status_danger"
+            app:elevation="4dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Immediate Help"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textAllCaps="true"
-                android:textColor="@color/text_secondary"
-                android:layout_marginBottom="16dp"
-                android:letterSpacing="0.1"/>
-
-            <!-- Ambulance Call Button -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnCallAmbulance"
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:text="Call Ambulance (998)"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:backgroundTint="@color/status_danger"
-                android:textColor="@color/white"
-                app:cornerRadius="20dp"
-                app:icon="@android:drawable/ic_menu_call"
-                app:iconSize="32dp"
-                app:iconGravity="textStart"
-                android:layout_marginBottom="16dp"/>
+                android:layout_height="?attr/actionBarSize"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="@style/ThemeOverlay.Fanut.Toolbar.Emergency"
+                app:navigationIcon="@android:drawable/ic_menu_revert"
+                app:navigationIconTint="@color/white"
+                app:subtitle="@string/emergency_toolbar_subtitle"
+                app:subtitleTextColor="#E8FFFFFF"
+                app:title="@string/emergency_screen_title"
+                app:titleCentered="false"
+                app:titleTextColor="@color/white" />
+        </com.google.android.material.appbar.AppBarLayout>
 
-            <!-- Health Worker Call Button -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnCallWorker"
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            android:paddingBottom="@dimen/content_section_spacing_bottom">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:text="Call Health Worker"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:backgroundTint="@color/primary_green"
-                android:textColor="@color/white"
-                app:cornerRadius="20dp"
-                app:icon="@android:drawable/ic_menu_call"
-                app:iconGravity="textStart"
-                android:layout_marginBottom="32dp"/>
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nearby Facilities"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textAllCaps="true"
-                android:textColor="@color/text_secondary"
-                android:layout_marginBottom="16dp"
-                android:letterSpacing="0.1"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/screen_horizontal_padding"
+                    android:paddingTop="@dimen/content_section_spacing_top"
+                    android:paddingBottom="24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_max="@dimen/main_content_max_width">
 
-            <LinearLayout
-                android:id="@+id/facilityContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" />
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        app:cardBackgroundColor="@color/bg_card"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/status_danger"
+                        app:strokeWidth="1dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="@string/medical_disclaimer"
-                android:textSize="12sp"
-                android:textColor="@color/text_secondary"
-                android:gravity="center"
-                android:padding="16dp"
-                android:background="#F5F5F5"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
 
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:letterSpacing="0.08"
+                                android:text="@string/emergency_intro_title"
+                                android:textAllCaps="true"
+                                android:textColor="@color/status_danger"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
 
-    <include layout="@layout/layout_bottom_navigation" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:lineSpacingExtra="3dp"
+                                android:text="@string/emergency_intro_body"
+                                android:textColor="@color/text_main"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
 
-</LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:letterSpacing="0.1"
+                        android:text="@string/emergency_section_immediate"
+                        android:textAllCaps="true"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <!-- Ambulance -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        app:cardBackgroundColor="@color/bg_card"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/divider_subtle"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/emergency_ambulance_title"
+                                android:textColor="@color/text_main"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="@string/emergency_ambulance_body"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="13sp" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnCallAmbulance"
+                                style="@style/Widget.Material3.Button"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="14dp"
+                                android:minHeight="52dp"
+                                android:text="@string/emergency_ambulance_cta"
+                                android:textAllCaps="false"
+                                android:textStyle="bold"
+                                app:backgroundTint="@color/status_danger"
+                                app:cornerRadius="12dp"
+                                app:icon="@android:drawable/ic_menu_call"
+                                app:iconGravity="textStart"
+                                app:iconPadding="10dp"
+                                app:iconTint="@color/white" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Health worker -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="22dp"
+                        app:cardBackgroundColor="@color/bg_card"
+                        app:cardCornerRadius="14dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/divider_subtle"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/emergency_worker_title"
+                                android:textColor="@color/text_main"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="@string/emergency_worker_body"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="13sp" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnCallWorker"
+                                style="@style/Widget.Material3.Button"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="14dp"
+                                android:minHeight="52dp"
+                                android:text="@string/emergency_worker_cta"
+                                android:textAllCaps="false"
+                                android:textStyle="bold"
+                                app:backgroundTint="@color/primary_green"
+                                app:cornerRadius="12dp"
+                                app:icon="@android:drawable/ic_menu_call"
+                                app:iconGravity="textStart"
+                                app:iconPadding="10dp"
+                                app:iconTint="@color/white" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:letterSpacing="0.1"
+                        android:text="@string/emergency_section_facilities"
+                        android:textAllCaps="true"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:id="@+id/facilityContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/surface_muted"
+                        android:gravity="center"
+                        android:lineSpacingExtra="2dp"
+                        android:padding="14dp"
+                        android:text="@string/medical_disclaimer"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="@string/emergency_footer_note"
+                        android:textColor="@color/text_tertiary"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <include layout="@layout/layout_bottom_navigation" />
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

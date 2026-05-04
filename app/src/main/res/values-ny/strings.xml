@@ -1,0 +1,89 @@
+<resources>
+    <string name="app_name">ANA ATHU</string>
+    <string name="subtitle">Kutsata thanzi la mwana ndi mayi</string>
+    <string name="accessibility_theme_hint">Pulogalamuyi imagwiritsa ntchito kuwala kapena mdima wa chipangizo chanu komanso kukula kwa zilembo zomwe mwasankha.</string>
+
+    <string name="home_toolbar_title">Kunyumba</string>
+    <string name="welcome_greeting">Takulandirani,</string>
+    <string name="welcome_sub_greeting">Chida chanu chotsata thanzi la banja chili chokonzeka.</string>
+    <string name="header_select_module">Ntchito</string>
+    <string name="label_child_care">Chisamaliro cha mwana</string>
+    <string name="label_community">Gulu</string>
+
+    <string name="btn_child_module">Kutsata mwana</string>
+    <string name="register_child">Lembetsani mwana</string>
+    <string name="view_child">Onani zolemba</string>
+    <string name="vaccination_reminders">Katemera</string>
+    <string name="imci_danger_signs">Zizindikiro zoopsa</string>
+    <string name="muac_assessment">Kuyeza MUAC</string>
+
+    <string name="landing_hero_tagline">Thandizo la thanzi la mwana ndi mayi</string>
+    <string name="landing_hero_props">Kukula · MUAC · Katemera · Malangizo a WHO</string>
+    <string name="landing_trust_line">Pitani kuchipatala chapafupi kuti mulandire chithandizo - pulogalamuyi imangothandiza kutsata, osati kupeza matenda.</string>
+    <string name="landing_section_primary">Zomwe mungachite</string>
+    <string name="landing_section_guidance">Malangizo odalirika</string>
+    <string name="lang_english">Chingelezi</string>
+    <string name="lang_chichewa">Chichewa</string>
+    <string name="landing_child_card_sub">Mbiri ya mwana, ma chart a kukula, kuyezetsa zakudya ndi kutumiza</string>
+    <string name="landing_community_card_sub">Malangizo osadziwika kuchokera kwa makolo ena</string>
+
+    <string name="notifications_menu_title">Zidziwitso</string>
+    <string name="notifications_menu_cd">Zidziwitso ndi zikumbutso za katemera</string>
+    <string name="alerts_sheet_title">Zidziwitso ndi zikumbutso</string>
+    <string name="alerts_sheet_immunization_section">Katemera</string>
+    <string name="alerts_sheet_general_section">Zonse</string>
+    <string name="alerts_sheet_empty_immunization">Palibe mlingo wa katemera wa ana anu womwe wadutsa tsiku kapena ukuyandikira.</string>
+    <string name="alerts_sheet_open_immunization">Tsegulani rejista ya katemera</string>
+
+    <string name="medical_disclaimer">CHENJEZO: Pulogalamuyi siyimalowa m\'malo mwa chithandizo cha akatswiri azaumoyo. Funsani wogwira ntchito yaumoyo nthawi zonse.</string>
+
+    <string name="community_title">Gawo la gulu</string>
+    <string name="community_subtitle">Malangizo osadziwika a makolo pa chisamaliro cha tsiku ndi tsiku cha mwana</string>
+    <string name="community_intro_title">Mmene gawoli limagwirira ntchito</string>
+    <string name="community_intro_body">Werengani malangizo othandiza ochokera kwa osamalira ana. Lembani mwaulemu ndipo pitani kuchipatala ngati zizindikiro ndi zoopsa.</string>
+    <string name="community_filter_all">Malangizo onse</string>
+    <string name="community_filter_nutrition">Zakudya</string>
+    <string name="community_filter_hygiene">Ukhondo</string>
+    <string name="community_filter_vaccination">Katemera</string>
+    <string name="community_filter_illness">Kusamalira matenda</string>
+    <string name="community_list_section_title">Malangizo aposachedwa a m\'gulu</string>
+    <string name="community_empty_tips">Palibe malangizo m\'gawoli pano.</string>
+    <string name="community_tip_source">Malangizo a m\'gulu</string>
+    <string name="community_translation_pending">Kumasulira kukuchitika...</string>
+    <string name="share_tip">Gawani malangizo</string>
+    <string name="share_tip_title">Gawani malangizo osadziwika</string>
+    <string name="tip_hint">Lembani malangizo anu pano...</string>
+    <string name="submit">Tumizani</string>
+    <string name="cancel">Letsani</string>
+    <string name="tip_submitted">Malangizo atumizidwa kuti ayesedwe.</string>
+    <string name="tip_moderated">Chonde pewani mawu osayenera.</string>
+
+    <string name="dashboard_title">Ana olembetsedwa</string>
+    <string name="empty_records_message">Palibe ana olembetsedwa pano.</string>
+    <string name="add_child_desc">Onjezani mwana</string>
+
+    <string name="child_care_title">Chisamaliro cha mwana</string>
+    <string name="child_care_toolbar_subtitle">Kukula, zakudya ndi katemera</string>
+    <string name="child_care_overview_section">Chidule</string>
+    <string name="child_care_tools_section">Zida zachipatala</string>
+    <string name="child_care_tools_hint">Sankhani njira pansipa. Deta imasungidwa pa chipangizochi.</string>
+
+    <string name="growth_monitoring_title">Kutsata kukula</string>
+    <string name="growth_monitoring_subtitle">Tsatani momwe kukula ndi thanzi la zakudya zikuyendera</string>
+    <string name="vaccination_title">Ndondomeko ya katemera ya Malawi EPI</string>
+    <string name="vaccination_subtitle">Zikumbutso za katemera ofunika</string>
+    <string name="vaccination_register_title">Rejista ya katemera</string>
+    <string name="vaccination_register_subtitle">EPI ya dziko · tchati la mlingo la chipatala</string>
+    <string name="vaccination_no_children">Lembetsani mwana kaye kuti mupange ndondomeko ya katemera kuchokera tsiku lobadwa.</string>
+
+    <string name="emergency_screen_title">Nambala za mwadzidzidzi</string>
+    <string name="emergency_toolbar_subtitle">Kuyimba mwachangu ndi mndandanda wa kutumiza odwala</string>
+    <string name="emergency_section_immediate">Zochita zachangu</string>
+    <string name="emergency_ambulance_title">Ambulansi ya dziko</string>
+    <string name="emergency_ambulance_cta">Imbani 998</string>
+    <string name="emergency_footer_note">Nambalazi ndi zachitsanzo. Tsimikizirani ku ofesi ya zaumoyo ya boma lanu.</string>
+
+    <string name="back_button_desc">Bwerera mmbuyo</string>
+    <string name="desc_app_logo">Logo ya pulogalamu</string>
+    <string name="desc_growth_icon">Chizindikiro cha kukula</string>
+</resources>

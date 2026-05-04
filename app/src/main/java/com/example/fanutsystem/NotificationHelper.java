@@ -11,7 +11,10 @@ import androidx.core.app.NotificationManagerCompat;
 
 public class NotificationHelper {
     public static final String CHANNEL_ID = "emergency_alerts";
+    public static final String CHANNEL_VACCINATION_ID = "vaccination_reminders";
+
     private static final int NOTIFICATION_ID = 101;
+    private static final int NOTIFICATION_ID_VACCINATION = 202;
 
     public static void createNotificationChannel(Context context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -22,6 +25,44 @@ public class NotificationHelper {
             channel.setDescription(description);
             NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+    public static void createVaccinationChannel(Context context) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "Immunization reminders";
+            String description = "Due and overdue vaccination summaries";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_VACCINATION_ID, name, importance);
+            channel.setDescription(description);
+            NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+    public static void notifyVaccinationReminder(Context context, String title, String body) {
+        Intent intent = new Intent(context, VaccinationActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(
+                context,
+                1,
+                intent,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_VACCINATION_ID)
+                .setSmallIcon(R.drawable.ic_calendar)
+                .setContentTitle(title)
+                .setContentText(body)
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(body))
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true);
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
+        try {
+            notificationManager.notify(NOTIFICATION_ID_VACCINATION, builder.build());
+        } catch (SecurityException e) {
+            // POST_NOTIFICATIONS not granted on API 33+
         }
     }
 

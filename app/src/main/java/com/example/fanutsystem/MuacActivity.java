@@ -58,24 +58,10 @@ public class MuacActivity extends AppCompatActivity {
     }
 
     private void classifyAndDisplay(double muac) {
-        String status;
-        int color;
-        int iconRes = android.R.drawable.presence_online; // Default circle
-
-        if (muac < 11.5) {
-            status = getString(R.string.muac_severe);
-            color = ContextCompat.getColor(this, android.R.color.holo_red_dark);
-        } else if (muac < 12.5) {
-            status = getString(R.string.muac_moderate);
-            color = ContextCompat.getColor(this, android.R.color.holo_orange_dark);
-        } else {
-            status = getString(R.string.muac_normal);
-            color = ContextCompat.getColor(this, android.R.color.holo_green_dark);
-        }
-
-        // Set result text and color
-        tvResult.setText(status);
-        tvResult.setTextColor(color);
+        MuacClassification.MuacResult result = MuacClassification.classify(this, muac);
+        tvResult.setText(result.statusLabel);
+        tvResult.setTextColor(result.color);
+        int color = result.color;
         
         // Update Icon color
         ivStatusIcon.setColorFilter(color);

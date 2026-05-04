@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 
 public class ChildDetailsActivity extends AppCompatActivity {
@@ -52,12 +51,6 @@ public class ChildDetailsActivity extends AppCompatActivity {
                     startActivity(intent);
                 });
             }
-        }
-        
-        // Setup back button in toolbar correctly
-        MaterialToolbar toolbar = findViewById(R.id.toolbar);
-        if (toolbar != null) {
-            toolbar.setNavigationOnClickListener(v -> finish());
         }
 
         ImageButton btnBack = findViewById(R.id.btnBack);

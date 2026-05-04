@@ -6,9 +6,10 @@
     android:layout_marginHorizontal="16dp"
     android:layout_marginVertical="8dp"
     app:cardCornerRadius="16dp"
-    app:cardElevation="2dp"
+    app:cardElevation="1dp"
+    app:cardBackgroundColor="@color/bg_card"
     app:strokeWidth="1dp"
-    app:strokeColor="#10000000">
+    app:strokeColor="@color/divider_subtle">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,13 +22,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="10dp">
 
             <TextView
                 android:id="@+id/tvTipCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nutrition"
+                android:text="@string/community_filter_nutrition"
                 android:textSize="10sp"
                 android:textStyle="bold"
                 android:textAllCaps="true"
@@ -44,7 +45,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Anonymous Tip"
+                android:text="@string/community_tip_source"
                 android:textSize="10sp"
                 android:textColor="@color/text_secondary"
                 android:fontStyle="italic" />
@@ -54,20 +55,21 @@
             android:id="@+id/tvTipEnglish"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="English tip goes here..."
+            android:text="English tip goes here"
             android:textColor="@color/text_main"
-            android:textSize="14sp"
+            android:textSize="15sp"
             android:textStyle="bold"
-            android:layout_marginBottom="4dp" />
+            android:lineHeight="21sp"
+            android:layout_marginBottom="8dp" />
 
         <TextView
             android:id="@+id/tvTipChichewa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chichewa tip goes here..."
+            android:text="Chichewa tip goes here"
             android:textColor="@color/text_secondary"
-            android:textSize="13sp"
-            android:lineHeight="18sp" />
+            android:textSize="14sp"
+            android:lineHeight="20sp" />
 
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

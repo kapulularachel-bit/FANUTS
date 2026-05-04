@@ -1,281 +1,476 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".ChildRegistrationActivity">
 
-    <!-- Global Background Image -->
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/mwana"
-        android:alpha="0.12"
-        android:contentDescription="@null" />
-
-    <com.google.android.material.appbar.AppBarLayout
+    <!-- Header Section with Gradient Background -->
+    <LinearLayout
+        android:id="@+id/headerLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        app:elevation="0dp">
+        android:orientation="horizontal"
+        android:padding="24dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/header_gradient"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:layout_width="match_parent"
-            android:layout_height="140dp"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:contentScrim="@color/primary_green">
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/back_button_desc"
+            android:src="@android:drawable/ic_menu_revert"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            app:tint="@color/white" />
 
-            <!-- Header Background Image -->
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/mwana"
-                android:contentDescription="@string/register_child"
-                app:layout_collapseMode="parallax" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#99000000" />
+            <TextView
+                android:id="@+id/tvRegTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/register_child"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="24dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reg_subtitle"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:alpha="0.8"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
 
-                <ImageButton
-                    android:id="@+id/btnBack"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="@string/back_button_desc"
-                    android:src="@android:drawable/ic_menu_revert"
-                    app:tint="@color/white" />
+        <!-- Progress Indicator -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-                <TextView
-                    android:id="@+id/tvRegTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="16dp"
-                    android:text="@string/register_child"
-                    android:textColor="@color/white"
-                    android:textSize="28sp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-    </com.google.android.material.appbar.AppBarLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/progress_step"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:alpha="0.9" />
+        </LinearLayout>
+    </LinearLayout>
 
+    <!-- Scrollable Content with Entry Animation -->
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollContent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="24dp"
+        app:layout_constraintTop_toBottomOf="@id/headerLayout"
+        app:layout_constraintBottom_toTopOf="@id/bottomBar">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-20dp"
-            android:background="@drawable/rounded_top_corners_transparent"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:padding="20dp">
 
-            <!-- Form Container -->
+            <!-- Section 1: Child Information Card -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardChildInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="6dp"
-                app:strokeWidth="0dp">
+                android:layout_marginBottom="32dp"
+                android:elevation="4dp"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="@color/bg_card"
+                app:strokeColor="@color/stroke_light"
+                app:strokeWidth="1dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="24dp">
+                    android:padding="28dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/child_information"
-                        android:textColor="@color/primary_green"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="16dp"/>
-
-                    <!-- Child Name -->
-                    <com.google.android.material.textfield.TextInputLayout
+                    <!-- Section Header -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:hint="@string/Child_name"
-                        app:startIconDrawable="@android:drawable/ic_menu_edit"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="28dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_child"
+                            app:tint="@color/primary_green"
+                            android:contentDescription="@string/child_info_icon" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/child_information"
+                            android:textColor="@color/primary_green"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_marginStart="12dp" />
+                    </LinearLayout>
+
+                    <!-- Child Name with Floating Label -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/layoutChildName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:hint="@string/child_name_hint"
+                        app:helperText="@string/child_name_helper"
+                        app:helperTextTextColor="@color/text_secondary"
+                        app:startIconDrawable="@drawable/ic_person"
                         app:startIconTint="@color/primary_green"
-                        app:boxCornerRadiusTopStart="12dp"
-                        app:boxCornerRadiusTopEnd="12dp"
-                        app:boxCornerRadiusBottomStart="12dp"
-                        app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxCornerRadiusTopStart="14dp"
+                        app:boxCornerRadiusTopEnd="14dp"
+                        app:boxCornerRadiusBottomStart="14dp"
+                        app:boxCornerRadiusBottomEnd="14dp"
+                        app:boxStrokeColor="@color/text_input_stroke"
+                        app:boxStrokeErrorColor="@color/status_danger"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/ChildName"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="textPersonName" />
+                            android:layout_height="56dp"
+                            android:inputType="textPersonName"
+                            android:textSize="16sp"
+                            android:textColor="@color/text_main" />
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <!-- Date of Birth -->
+                    <!-- Date of Birth with Floating Label -->
                     <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/layoutDob"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        android:hint="@string/data_of_birth"
-                        app:startIconDrawable="@android:drawable/ic_menu_my_calendar"
+                        android:layout_marginBottom="28dp"
+                        android:hint="@string/dob_hint"
+                        app:helperText="@string/dob_helper"
+                        app:helperTextTextColor="@color/text_secondary"
+                        app:startIconDrawable="@drawable/ic_calendar"
                         app:startIconTint="@color/primary_green"
-                        app:boxCornerRadiusTopStart="12dp"
-                        app:boxCornerRadiusTopEnd="12dp"
-                        app:boxCornerRadiusBottomStart="12dp"
-                        app:boxCornerRadiusBottomEnd="12dp"
+                        app:boxCornerRadiusTopStart="14dp"
+                        app:boxCornerRadiusTopEnd="14dp"
+                        app:boxCornerRadiusBottomStart="14dp"
+                        app:boxCornerRadiusBottomEnd="14dp"
+                        app:boxStrokeColor="@color/text_input_stroke"
+                        app:boxStrokeErrorColor="@color/status_danger"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/DOb"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="56dp"
                             android:focusable="false"
-                            android:clickable="true" />
+                            android:clickable="true"
+                            android:textSize="16sp"
+                            android:textColor="@color/text_main" />
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <!-- Gender Selection -->
-                    <com.google.android.material.textfield.TextInputLayout
+                    <!-- Gender Selection with Chips -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:hint="@string/gender"
-                        app:startIconDrawable="@android:drawable/ic_menu_help"
-                        app:startIconTint="@color/primary_green"
-                        app:boxCornerRadiusTopStart="12dp"
-                        app:boxCornerRadiusTopEnd="12dp"
-                        app:boxCornerRadiusBottomStart="12dp"
-                        app:boxCornerRadiusBottomEnd="12dp"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+                        android:orientation="vertical">
 
-                        <AutoCompleteTextView
-                            android:id="@+id/Gender"
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/gender_label"
+                            android:textColor="@color/text_main"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="12dp" />
+
+                        <com.google.android.material.button.MaterialButtonToggleGroup
+                            android:id="@+id/genderToggleGroup"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="none"
-                            android:padding="16dp"
-                            tools:ignore="LabelFor" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                            app:singleSelection="true"
+                            app:selectionRequired="true"
+                            android:minHeight="56dp">
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#F0F0F0"
-                        android:layout_marginBottom="24dp"/>
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnMale"
+                                style="@style/Theme.FanutSystem.GenderChip"
+                                android:layout_width="0dp"
+                                android:layout_height="56dp"
+                                android:layout_weight="1"
+                                android:text="@string/gender_male"
+                                android:textSize="14sp"
+                                android:contentDescription="@string/gender_male" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/health_metrics"
-                        android:textColor="@color/primary_green"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="16dp"/>
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnFemale"
+                                style="@style/Theme.FanutSystem.GenderChip"
+                                android:layout_width="0dp"
+                                android:layout_height="56dp"
+                                android:layout_weight="1"
+                                android:text="@string/gender_female"
+                                android:textSize="14sp"
+                                android:contentDescription="@string/gender_female" />
 
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnOther"
+                                style="@style/Theme.FanutSystem.GenderChip"
+                                android:layout_width="0dp"
+                                android:layout_height="56dp"
+                                android:layout_weight="1"
+                                android:text="@string/gender_other"
+                                android:textSize="14sp"
+                                android:contentDescription="@string/gender_other" />
+                        </com.google.android.material.button.MaterialButtonToggleGroup>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Section 2: Health Metrics Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardHealthMetrics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="4dp"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="@color/bg_card"
+                app:strokeColor="@color/stroke_light"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="28dp">
+
+                    <!-- Section Header -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:baselineAligned="false">
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="28dp">
 
-                        <!-- Weight -->
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_health"
+                            app:tint="@color/primary_green"
+                            android:contentDescription="@string/health_metrics_icon" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/health_metrics"
+                            android:textColor="@color/primary_green"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_marginStart="12dp" />
+                    </LinearLayout>
+
+                    <!-- Weight & Height Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:baselineAligned="false"
+                        android:layout_marginBottom="20dp">
+
+                        <!-- Weight Input -->
                         <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/layoutWeight"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:layout_marginEnd="8dp"
-                            android:layout_marginBottom="16dp"
-                            android:hint="@string/weight"
-                            app:suffixText="kg"
-                            app:boxCornerRadiusTopStart="12dp"
-                            app:boxCornerRadiusTopEnd="12dp"
-                            app:boxCornerRadiusBottomStart="12dp"
-                            app:boxCornerRadiusBottomEnd="12dp"
+                            android:layout_marginEnd="12dp"
+                            android:hint="@string/weight_hint"
+                            app:suffixText="@string/weight_unit"
+                            app:boxCornerRadiusTopStart="14dp"
+                            app:boxCornerRadiusTopEnd="14dp"
+                            app:boxCornerRadiusBottomStart="14dp"
+                            app:boxCornerRadiusBottomEnd="14dp"
+                            app:boxStrokeColor="@color/text_input_stroke"
+                            app:boxStrokeErrorColor="@color/status_danger"
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/Weight"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:inputType="numberDecimal" />
+                                android:layout_height="56dp"
+                                android:inputType="numberDecimal"
+                                android:textSize="16sp"
+                                android:textColor="@color/text_main" />
                         </com.google.android.material.textfield.TextInputLayout>
 
-                        <!-- Height -->
+                        <!-- Height Input -->
                         <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/layoutHeight"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginBottom="16dp"
-                            android:hint="@string/height"
-                            app:suffixText="cm"
-                            app:boxCornerRadiusTopStart="12dp"
-                            app:boxCornerRadiusTopEnd="12dp"
-                            app:boxCornerRadiusBottomStart="12dp"
-                            app:boxCornerRadiusBottomEnd="12dp"
+                            android:layout_marginStart="12dp"
+                            android:hint="@string/height_hint"
+                            app:suffixText="@string/height_unit"
+                            app:boxCornerRadiusTopStart="14dp"
+                            app:boxCornerRadiusTopEnd="14dp"
+                            app:boxCornerRadiusBottomStart="14dp"
+                            app:boxCornerRadiusBottomEnd="14dp"
+                            app:boxStrokeColor="@color/text_input_stroke"
+                            app:boxStrokeErrorColor="@color/status_danger"
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/Height"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:inputType="numberDecimal" />
+                                android:layout_height="56dp"
+                                android:inputType="numberDecimal"
+                                android:textSize="16sp"
+                                android:textColor="@color/text_main" />
                         </com.google.android.material.textfield.TextInputLayout>
                     </LinearLayout>
 
-                    <!-- MUAC -->
-                    <com.google.android.material.textfield.TextInputLayout
+                    <!-- MUAC Input with Info Tooltip -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="32dp"
-                        android:hint="@string/MUAC"
-                        app:suffixText="cm"
-                        app:helperText="Mid-Upper Arm Circumference"
-                        app:boxCornerRadiusTopStart="12dp"
-                        app:boxCornerRadiusTopEnd="12dp"
-                        app:boxCornerRadiusBottomStart="12dp"
-                        app:boxCornerRadiusBottomEnd="12dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/muac_label"
+                            android:textColor="@color/text_main"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <ImageButton
+                            android:id="@+id/btnMuacInfo"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:src="@android:drawable/ic_menu_info_details"
+                            android:contentDescription="@string/muac_info_tooltip"
+                            android:scaleType="centerInside"
+                            app:tint="@color/primary_green"
+                            android:layout_marginStart="8dp"
+                            android:minWidth="40dp"
+                            android:minHeight="40dp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/layoutMuac"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/muac_hint"
+                        app:suffixText="@string/muac_unit"
+                        app:helperText="@string/muac_helper"
+                        app:helperTextTextColor="@color/text_secondary"
+                        app:boxCornerRadiusTopStart="14dp"
+                        app:boxCornerRadiusTopEnd="14dp"
+                        app:boxCornerRadiusBottomStart="14dp"
+                        app:boxCornerRadiusBottomEnd="14dp"
+                        app:boxStrokeColor="@color/text_input_stroke"
+                        app:boxStrokeErrorColor="@color/status_danger"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/MUAC"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="numberDecimal" />
+                            android:layout_height="56dp"
+                            android:inputType="numberDecimal"
+                            android:textSize="16sp"
+                            android:textColor="@color/text_main" />
                     </com.google.android.material.textfield.TextInputLayout>
-
-                    <!-- Register Button -->
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnRegister"
-                        android:layout_width="match_parent"
-                        android:layout_height="64dp"
-                        android:text="@string/register"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        app:cornerRadius="16dp"
-                        app:elevation="4dp"
-                        android:backgroundTint="@color/primary_green" />
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <!-- Sticky Bottom Bar with Primary CTA -->
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:background="@drawable/bottom_bar_background"
+        android:elevation="16dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Disclaimer Text -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/registration_note"
+            android:textSize="12sp"
+            android:textColor="@color/text_secondary"
+            android:layout_marginBottom="12dp"
+            android:gravity="center" />
+
+        <!-- Register Button -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="@string/register_button"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.01"
+                app:cornerRadius="14dp"
+                android:backgroundTint="@color/primary_green"
+                app:elevation="6dp"
+                android:minHeight="56dp"
+                android:contentDescription="@string/register_button" />
+
+            <!-- Loading Spinner -->
+            <ProgressBar
+                android:id="@+id/progressLoading"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/white"
+                android:visibility="gone" />
+
+            <!-- Success Checkmark -->
+            <ImageView
+                android:id="@+id/ivSuccess"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_check_circle"
+                android:scaleType="centerInside"
+                android:contentDescription="@string/registration_success"
+                android:visibility="gone" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

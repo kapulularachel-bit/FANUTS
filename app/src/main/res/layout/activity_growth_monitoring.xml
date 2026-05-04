@@ -63,12 +63,94 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
-                        android:text="Track growth progress using official WHO standards for weight and height."
+                        android:text="@string/growth_who_intro"
                         android:textSize="13sp"
                         android:textColor="@color/pediatric_blue"
                         android:lineHeight="18sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
+
+            <!-- MUAC reference (6–59 mo standard bands) -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/stroke_light"
+                app:cardBackgroundColor="@color/bg_card">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/muac_assessment_title"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_main"
+                        android:layout_marginBottom="8dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/muac_reference_ranges_body"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_secondary"
+                        android:lineHeight="17sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Sex selector for WHO curves -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/growth_sex_label"
+                    android:textStyle="bold"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginEnd="12dp" />
+
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/toggleGrowthSex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleSelection="true"
+                    app:checkedButton="@+id/btnGrowthSexBoy">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnGrowthSexBoy"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:minHeight="40dp"
+                        android:text="@string/gender_male" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnGrowthSexGirl"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:insetTop="0dp"
+                        android:insetBottom="0dp"
+                        android:minHeight="40dp"
+                        android:text="@string/gender_female" />
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+            </LinearLayout>
 
             <!-- Input Section -->
             <TextView
@@ -100,7 +182,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Age (0-60 Months)"
+                        android:hint="@string/age_months_hint"
                         android:layout_marginBottom="12dp"
                         app:startIconDrawable="@android:drawable/ic_menu_my_calendar"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -121,7 +203,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:hint="Weight"
+                            android:hint="@string/label_weight"
                             android:layout_marginEnd="6dp"
                             app:suffixText="kg"
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -136,7 +218,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:hint="Height"
+                            android:hint="@string/label_height"
                             android:layout_marginStart="6dp"
                             app:suffixText="cm"
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -151,7 +233,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="MUAC (cm)"
+                        android:hint="@string/label_muac"
                         android:layout_marginTop="12dp"
                         android:layout_marginBottom="16dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -166,7 +248,7 @@
                         android:id="@+id/btnCalculate"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
-                        android:text="Plot &amp; Analyze"
+                        android:text="@string/btn_plot_analyze"
                         android:textStyle="bold"
                         app:cornerRadius="12dp"
                         android:backgroundTint="@color/pediatric_blue"/>
@@ -201,7 +283,7 @@
                     android:layout_marginBottom="16dp"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="2dp"
-                    app:cardBackgroundColor="@color/white">
+                    app:cardBackgroundColor="@color/bg_card">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -218,12 +300,22 @@
                             android:textStyle="bold"
                             android:textColor="@color/status_success"
                             android:gravity="center"
-                            android:layout_marginBottom="12dp"/>
+                            android:layout_marginBottom="8dp"/>
+
+                        <TextView
+                            android:id="@+id/tvWhoAgeNote"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:textSize="12sp"
+                            android:textColor="@color/text_secondary"
+                            android:gravity="center"
+                            android:layout_marginBottom="12dp" />
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="#10000000"
+                            android:background="@color/divider_subtle"
                             android:layout_marginBottom="16dp"/>
 
                         <LinearLayout
@@ -276,6 +368,18 @@
                                     android:textColor="@color/text_main"/>
                             </LinearLayout>
                         </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvMuacClinicalNote"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:textSize="12sp"
+                            android:textColor="@color/text_secondary"
+                            android:lineHeight="17sp"
+                            android:visibility="gone"
+                            tools:text="@string/muac_reference_ranges_body"
+                            tools:visibility="visible" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -296,10 +400,18 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Weight-for-Age Curve"
+                            android:text="@string/who_curve_title"
                             android:textSize="14sp"
                             android:textStyle="bold"
                             android:textColor="@color/text_main"
+                            android:layout_marginBottom="4dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/growth_chart_axis_hint"
+                            android:textSize="11sp"
+                            android:textColor="@color/text_tertiary"
                             android:layout_marginBottom="12dp"/>
 
                         <com.github.mikephil.charting.charts.LineChart
@@ -317,22 +429,22 @@
 
                             <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:padding="4dp">
                                 <View android:layout_width="12dp" android:layout_height="3dp" android:background="#388E3C"/>
-                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Median (Healthy)" android:textSize="11sp" android:layout_marginStart="4dp"/>
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/legend_median_who" android:textSize="11sp" android:layout_marginStart="4dp"/>
                             </LinearLayout>
 
                             <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:padding="4dp">
                                 <View android:layout_width="12dp" android:layout_height="3dp" android:background="#FBC02D"/>
-                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" -2 SD (Risk)" android:textSize="11sp" android:layout_marginStart="4dp"/>
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/legend_sd2_who" android:textSize="11sp" android:layout_marginStart="4dp"/>
                             </LinearLayout>
 
                             <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:padding="4dp">
                                 <View android:layout_width="12dp" android:layout_height="3dp" android:background="#D32F2F"/>
-                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" -3 SD (Critical)" android:textSize="11sp" android:layout_marginStart="4dp"/>
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/legend_sd3_who" android:textSize="11sp" android:layout_marginStart="4dp"/>
                             </LinearLayout>
 
                             <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:padding="4dp">
                                 <View android:layout_width="8dp" android:layout_height="8dp" android:background="@color/pediatric_blue"/>
-                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Your Child" android:textSize="11sp" android:textStyle="bold" android:layout_marginStart="4dp"/>
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/legend_child_point" android:textSize="11sp" android:textStyle="bold" android:layout_marginStart="4dp"/>
                             </LinearLayout>
                         </GridLayout>
 

@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
+        android:name=".FanutApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_medical_cross"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:localeConfig="@xml/locales_config"
+        android:roundIcon="@drawable/ic_medical_cross"
         android:supportsRtl="true"
         android:theme="@style/Theme.FanutSystem">
 
@@ -30,6 +33,7 @@
         <activity android:name=".MuacActivity"/>
         <activity android:name=".VaccinationActivity"/>
         <activity android:name=".CommunityActivity"/>
+        <activity android:name=".EmergencyActivity"/>
 
     </application>
 

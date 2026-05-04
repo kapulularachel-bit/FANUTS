@@ -4,287 +4,554 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8F9FA">
-
-    <!-- Removed the dark/colorful gradient background for a cleaner look -->
+    android:background="@color/background"
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- Light Header with Logo -->
-        <LinearLayout
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingHorizontal="24dp"
-            android:background="@android:color/transparent">
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="0dp"
-                app:strokeWidth="1dp"
-                app:strokeColor="#E0E0E0"
-                app:cardBackgroundColor="@color/white">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="8dp"
-                    android:src="@mipmap/logo1"
-                    android:contentDescription="@string/desc_app_logo"
-                    android:tint="@color/primary_green" />
-            </com.google.android.material.card.MaterialCardView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ANA ATHU"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#333333"
-                android:layout_marginStart="12dp" />
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:background="@color/bg_card"
+            app:elevation="2dp">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:minHeight="?attr/actionBarSize"
+                android:paddingEnd="@dimen/toolbar_notification_action_end_gap"
+                android:theme="@style/ThemeOverlay.Fanut.Toolbar.Home"
+                app:contentInsetEnd="@dimen/toolbar_content_inset_end"
+                app:contentInsetStart="@dimen/toolbar_content_inset_start_no_nav"
+                app:title="@string/home_toolbar_title"
+                app:titleTextColor="@color/text_main"
+                app:titleCentered="false" />
+        </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:clipToPadding="false"
-            android:paddingBottom="24dp">
+            android:fillViewport="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingHorizontal="24dp"
-                android:paddingTop="16dp">
+                android:orientation="vertical">
 
-                <!-- Welcome Greeting -->
+                <!-- Identity hero: unmistakable “you opened the health app” -->
                 <LinearLayout
-                    android:id="@+id/logoContainer"
+                    android:id="@+id/landingHero"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/landing_hero_shape"
                     android:orientation="vertical"
-                    android:layout_marginBottom="32dp">
+                    android:paddingHorizontal="@dimen/hero_padding_horizontal"
+                    android:paddingTop="@dimen/hero_padding_top"
+                    android:paddingBottom="@dimen/hero_padding_bottom">
+
+                    <LinearLayout
+                        android:id="@+id/logoContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/logoCard"
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardCornerRadius="18dp"
+                            app:cardElevation="4dp"
+                            app:strokeWidth="0dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/white"
+                                android:contentDescription="@string/desc_app_logo"
+                                android:padding="14dp"
+                                android:src="@drawable/ic_medical_cross"
+                                app:tint="@color/primary_green" />
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvAppName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:letterSpacing="0.02"
+                                android:text="@string/app_name"
+                                android:textColor="@color/white"
+                                android:textSize="26sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvSubtitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="@string/landing_hero_tagline"
+                                android:textColor="#E8FFFFFF"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
                     <TextView
-                        android:id="@+id/tvAppName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:lineSpacingExtra="3dp"
+                        android:text="@string/landing_hero_props"
+                        android:textColor="#CCE8F5E9"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:lineSpacingExtra="2dp"
+                        android:text="@string/landing_trust_line"
+                        android:textColor="#99FFFFFF"
+                        android:textSize="11sp" />
+
+                    <LinearLayout
+                        android:id="@+id/languageSwitcher"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Hello! 👋"
-                        android:textSize="32sp"
-                        android:textStyle="bold"
-                        android:textColor="#1A1A1A" />
-                    <TextView
-                        android:id="@+id/tvSubtitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Let's track your child's health"
-                        android:textSize="15sp"
-                        android:textColor="#757575"
-                        android:layout_marginTop="4dp" />
+                        android:layout_marginTop="12dp"
+                        android:background="#1AFFFFFF"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="4dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnLangEnglish"
+                            style="@style/Widget.Material3.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minHeight="40dp"
+                            android:text="@string/lang_english"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            app:backgroundTint="@android:color/transparent"
+                            app:strokeColor="@android:color/transparent"
+                            app:strokeWidth="0dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnLangChichewa"
+                            style="@style/Widget.Material3.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minHeight="40dp"
+                            android:text="@string/lang_chichewa"
+                            android:textAllCaps="false"
+                            android:textColor="#CCFFFFFF"
+                            app:backgroundTint="@android:color/transparent"
+                            app:strokeColor="@android:color/transparent"
+                            app:strokeWidth="0dp" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/tvServicesLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Services"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="#1A1A1A"
-                    android:layout_marginBottom="16dp" />
-
-                <!-- Sleek Child Care Service Card -->
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/btnChildModuleCard"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="2dp"
-                    app:strokeWidth="1dp"
-                    app:strokeColor="#E8E8E8"
-                    app:cardBackgroundColor="@color/white"
-                    app:rippleColor="#E0F2F1">
+                    android:layout_height="wrap_content">
+
                     <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="@dimen/screen_horizontal_padding"
+                        android:paddingTop="@dimen/content_section_spacing_top"
+                        android:paddingBottom="@dimen/content_section_spacing_bottom"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintWidth_max="@dimen/main_content_max_width">
+
+                    <TextView
+                        android:id="@+id/tvSelectLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:letterSpacing="0.1"
+                        android:text="@string/landing_section_primary"
+                        android:textAllCaps="true"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="20dp"
-                        android:gravity="center_vertical"
-                        android:background="?attr/selectableItemBackground">
-                        
-                        <com.google.android.material.card.MaterialCardView
-                            android:layout_width="56dp"
-                            android:layout_height="56dp"
-                            app:cardCornerRadius="28dp"
-                            app:cardElevation="0dp"
-                            app:cardBackgroundColor="#E8F5E9">
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="🧒"
-                                android:textSize="28sp"
-                                android:gravity="center" />
-                        </com.google.android.material.card.MaterialCardView>
+                        android:layout_marginBottom="14dp"
+                        android:lineSpacingExtra="2dp"
+                        android:text="@string/accessibility_theme_hint"
+                        android:textColor="@color/text_tertiary"
+                        android:textSize="12sp" />
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:layout_marginStart="16dp">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Child Care"
-                                android:textColor="#333333"
-                                android:textStyle="bold"
-                                android:textSize="18sp" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Growth &amp; Nutrition"
-                                android:textColor="#757575"
-                                android:textSize="14sp"
-                                android:layout_marginTop="2dp" />
-                        </LinearLayout>
-                        
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@android:drawable/ic_media_next"
-                            app:tint="#BDBDBD" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- Sleek Community Service Card -->
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/btnCommunityModuleCard"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="32dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="2dp"
-                    app:strokeWidth="1dp"
-                    app:strokeColor="#E8E8E8"
-                    app:cardBackgroundColor="@color/white"
-                    app:rippleColor="#FCE4EC">
+                    <!-- Primary actions -->
                     <LinearLayout
+                        android:id="@+id/sectionNextAction"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="20dp"
-                        android:gravity="center_vertical"
-                        android:background="?attr/selectableItemBackground">
+                        android:layout_marginBottom="16dp"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
 
                         <com.google.android.material.card.MaterialCardView
-                            android:layout_width="56dp"
-                            android:layout_height="56dp"
-                            app:cardCornerRadius="28dp"
-                            app:cardElevation="0dp"
-                            app:cardBackgroundColor="#FCE4EC">
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="👨‍👩‍👧‍👦"
-                                android:textSize="28sp"
-                                android:gravity="center" />
-                        </com.google.android.material.card.MaterialCardView>
-
-                        <LinearLayout
+                            android:id="@+id/btnChildModuleCard"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
                             android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:layout_marginStart="16dp">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Community"
-                                android:textColor="#333333"
-                                android:textStyle="bold"
-                                android:textSize="18sp" />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Resources &amp; Support"
-                                android:textColor="#757575"
-                                android:textSize="14sp"
-                                android:layout_marginTop="2dp" />
-                        </LinearLayout>
-                        
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@android:drawable/ic_media_next"
-                            app:tint="#BDBDBD" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
+                            android:minWidth="@dimen/primary_action_card_min_width"
+                            android:minHeight="156dp"
+                            app:cardBackgroundColor="@color/bg_card"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp"
+                            app:rippleColor="@color/primary_green_light"
+                            app:strokeColor="@color/divider_subtle"
+                            app:strokeWidth="1dp">
 
-                <!-- Subtle Health Tip -->
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/medicalInfoCard"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="0dp"
-                    app:cardBackgroundColor="#FFF8E1"
-                    app:strokeWidth="1dp"
-                    app:strokeColor="#FFECB3">
-                    <LinearLayout
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="start"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    app:cardBackgroundColor="@color/primary_green_light"
+                                    app:cardCornerRadius="14dp"
+                                    app:cardElevation="0dp">
+
+                                    <ImageView
+                                        android:layout_width="24dp"
+                                        android:layout_height="24dp"
+                                        android:layout_gravity="center"
+                                        android:contentDescription="@null"
+                                        android:src="@drawable/ic_health"
+                                        app:tint="@color/primary_green" />
+                                </com.google.android.material.card.MaterialCardView>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="12dp"
+                                    android:text="@string/label_child_care"
+                                    android:textColor="@color/text_main"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:lineSpacingExtra="2dp"
+                                    android:maxLines="4"
+                                    android:text="@string/landing_child_card_sub"
+                                    android:textColor="@color/text_secondary"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/btnCommunityModuleCard"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:minWidth="@dimen/primary_action_card_min_width"
+                            android:minHeight="156dp"
+                            app:cardBackgroundColor="@color/bg_card"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp"
+                            app:rippleColor="@color/pediatric_pink_light"
+                            app:strokeColor="@color/divider_subtle"
+                            app:strokeWidth="1dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="start"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+
+                                <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    app:cardBackgroundColor="@color/pediatric_pink_light"
+                                    app:cardCornerRadius="14dp"
+                                    app:cardElevation="0dp">
+
+                                    <ImageView
+                                        android:layout_width="24dp"
+                                        android:layout_height="24dp"
+                                        android:layout_gravity="center"
+                                        android:contentDescription="@null"
+                                        android:src="@android:drawable/ic_menu_share"
+                                        app:tint="@color/pediatric_pink" />
+                                </com.google.android.material.card.MaterialCardView>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="12dp"
+                                    android:text="@string/label_community"
+                                    android:textColor="@color/text_main"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:lineSpacingExtra="2dp"
+                                    android:maxLines="4"
+                                    android:text="@string/landing_community_card_sub"
+                                    android:textColor="@color/text_secondary"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+                    </LinearLayout>
+
+                    <!-- Vaccination shortcut -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/btnQuickVaccination"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="16dp"
-                        android:gravity="center_vertical">
-                        
-                        <TextView
-                            android:layout_width="wrap_content"
+                        android:layout_marginBottom="22dp"
+                        app:cardBackgroundColor="@color/bg_card"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:rippleColor="@color/primary_green_light"
+                        app:strokeColor="@color/divider_subtle"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="💡"
-                            android:textSize="24sp"
-                            android:layout_marginEnd="12dp" />
-                            
-                        <TextView
-                            android:layout_width="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="16dp">
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                app:cardBackgroundColor="@color/primary_green_light"
+                                app:cardCornerRadius="14dp"
+                                app:cardElevation="0dp">
+
+                                <ImageView
+                                    android:layout_width="24dp"
+                                    android:layout_height="24dp"
+                                    android:layout_gravity="center"
+                                    android:contentDescription="@null"
+                                    android:src="@drawable/ic_calendar"
+                                    app:tint="@color/primary_green" />
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="14dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/vaccination_reminders"
+                                    android:textColor="@color/text_main"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="@string/vaccination_subtitle"
+                                    android:textColor="@color/text_secondary"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:contentDescription="@null"
+                                android:src="@android:drawable/ic_media_play"
+                                app:tint="@color/text_tertiary" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/labelQuickActions"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:letterSpacing="0.1"
+                        android:text="@string/landing_section_guidance"
+                        android:textAllCaps="true"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:id="@+id/gridQuickActions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/medicalInfoCard"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Good nutrition in early childhood helps children develop strong minds and bodies for a healthy future!"
-                            android:textColor="#5D4037"
-                            android:textSize="13sp"
-                            android:lineHeight="18sp" />
+                            android:layout_marginBottom="12dp"
+                            app:cardBackgroundColor="@color/bg_card"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp"
+                            app:strokeColor="@color/divider_subtle"
+                            app:strokeWidth="1dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="18dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="10dp"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="18dp"
+                                        android:layout_height="18dp"
+                                        android:contentDescription="@null"
+                                        android:src="@android:drawable/ic_dialog_info"
+                                        app:tint="@color/accent_blue" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="8dp"
+                                        android:text="@string/header_who_guidelines"
+                                        android:textAllCaps="true"
+                                        android:textColor="@color/accent_blue"
+                                        android:textSize="11sp"
+                                        android:textStyle="bold"
+                                        android:letterSpacing="0.06" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:lineHeight="20sp"
+                                    android:text="@string/medical_tip_content"
+                                    android:textColor="@color/text_main"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/maternalInfoCard"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="24dp"
+                            app:cardBackgroundColor="@color/bg_card"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp"
+                            app:strokeColor="@color/divider_subtle"
+                            app:strokeWidth="1dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="18dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="10dp"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="18dp"
+                                        android:layout_height="18dp"
+                                        android:contentDescription="@null"
+                                        android:src="@android:drawable/btn_star_big_on"
+                                        app:tint="@color/pediatric_pink" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="8dp"
+                                        android:text="@string/header_maternal_wellness"
+                                        android:textAllCaps="true"
+                                        android:textColor="@color/pediatric_pink"
+                                        android:textSize="11sp"
+                                        android:textStyle="bold"
+                                        android:letterSpacing="0.06" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:lineHeight="20sp"
+                                    android:text="@string/maternal_tip_content"
+                                    android:textColor="@color/text_main"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
                     </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <!-- Placeholder for hidden maternal card -->
-                <View
-                    android:id="@+id/maternalInfoCard"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:visibility="gone" />
-
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 
-        <include layout="@layout/layout_bottom_navigation" />
-
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_card"
+            app:elevation="8dp"
+            app:itemIconTint="@color/primary_green"
+            app:itemTextColor="@color/text_main"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/bottom_nav_menu" />
     </LinearLayout>
 
-    <!-- Hidden Medical Disclaimer -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="#99FDFDFD"
-        android:padding="8dp"
-        android:text="@string/medical_disclaimer"
-        android:textSize="9sp"
-        android:textColor="@color/text_secondary"
+        android:layout_marginBottom="56dp"
+        android:background="@color/background"
         android:gravity="center"
-        app:layout_anchorGravity="bottom"
-        android:layout_marginBottom="48dp"
-        android:visibility="gone"/>
+        android:paddingHorizontal="@dimen/screen_horizontal_padding"
+        android:paddingVertical="10dp"
+        android:text="@string/medical_disclaimer"
+        android:textColor="@color/text_tertiary"
+        android:textSize="10sp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

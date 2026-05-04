@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Branded greens readable on dark backgrounds -->
+    <color name="primary_green_dark">#81C784</color>
+
+    <!-- Dark surfaces (Material DayNight + layouts using @color/...) -->
+    <color name="background">#121212</color>
+    <color name="bg_light">#121212</color>
+    <color name="bg_card">#1E1E1E</color>
+
+    <color name="text_main">#ECECEC</color>
+    <color name="text_secondary">#B8B8B8</color>
+    <color name="text_tertiary">#8E8E8E</color>
+
+    <color name="stroke_light">#383838</color>
+    <color name="text_input_stroke">#5C5C5C</color>
+
+    <!-- Tinted surfaces -->
+    <color name="primary_green_light">#1B3323</color>
+    <color name="primary_light">#1B3323</color>
+    <color name="pediatric_blue_light">#152A38</color>
+    <color name="pediatric_pink_light">#301821</color>
+    <color name="pediatric_yellow_light">#2E2712</color>
+    <color name="accent_light">#2A2312</color>
+
+    <color name="divider_subtle">#28FFFFFF</color>
+
+    <!-- Slightly softer neutrals on dark -->
+    <color name="gray_button">#757575</color>
+
+    <color name="surface_muted">#252525</color>
+    <color name="surface_detail_section">#222222</color>
+    <color name="vaccine_progress_track">#33204028</color>
+</resources>
